@@ -36,6 +36,8 @@ export const TEAM_LIST = [
     slug: "james-brown",
     position: "Design",
     country: "Los Angeles, CA",
+    phone: "+1 (800) 430-2154",
+    email: "email@email.com",
     image: "/images/team/James_Brown.jpg",
     socials: [
       {
@@ -61,6 +63,8 @@ export const TEAM_LIST = [
     slug: "natalie-martinez",
     position: "Design",
     country: "San Francisco, CA",
+    phone: "+1 (800) 430-2154",
+    email: "email@email.com",
     image: "/images/team/Natalie_Martinez.jpg",
     socials: [
       {
@@ -86,6 +90,8 @@ export const TEAM_LIST = [
     slug: "alan-webber",
     position: "Design",
     country: "Dallas, TX",
+    phone: "+1 (800) 430-2154",
+    email: "email@email.com",
     image: "/images/team/Alan_Webber.jpg",
     socials: [
       {
@@ -111,6 +117,8 @@ export const TEAM_LIST = [
     slug: "patricia-glasper",
     position: "Design",
     country: "New York, NY",
+    phone: "+1 (800) 430-2154",
+    email: "email@email.com",
     image: "/images/team/Patricia_Glasper.jpg",
     socials: [
       {
@@ -136,6 +144,8 @@ export const TEAM_LIST = [
     slug: "bobby-fetcher",
     position: "Design",
     country: "New York, NY",
+    phone: "+1 (800) 430-2154",
+    email: "email@email.com",
     image: "/images/team/Bobby_Fetcher.jpg",
     socials: [
       {
@@ -161,6 +171,8 @@ export const TEAM_LIST = [
     slug: "jacqueline-jackson",
     position: "Design",
     country: "Los Angeles, CA",
+    phone: "+1 (800) 430-2154",
+    email: "email@email.com",
     image: "/images/team/Jacqueline_Jackson.jpg",
     socials: [
       {
@@ -186,6 +198,8 @@ export const TEAM_LIST = [
     slug: "mark-fitz",
     position: "Design",
     country: "New York, NY",
+    phone: "+1 (800) 430-2154",
+    email: "email@email.com",
     image: "/images/team/Mark_Fitz.jpg",
     socials: [
       {
@@ -211,6 +225,8 @@ export const TEAM_LIST = [
     slug: "nora-owen",
     position: "Design",
     country: "Vancouver, BC",
+    phone: "+1 (800) 430-2154",
+    email: "email@email.com",
     image: "/images/team/Nora_Owen.jpg",
     socials: [
       {

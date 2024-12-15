@@ -4,6 +4,8 @@ export type Employee = {
   position: string;
   country: string;
   image: string;
+  phone: string;
+  email: string;
   socials: Social[];
 };
 
