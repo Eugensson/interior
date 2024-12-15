@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-secondary text-secondary text-xl;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-primary text-primary;
+  }
+
+  .h1 {
+    @apply text-6xl lg:text-7xl leading-none;
+  }
+
+  .h2 {
+    @apply text-5xl leading-tight;
+  }
+
+  .h3 {
+    @apply text-2xl;
+  }
+
+  .btn {
+    @apply h-20 px-8 transition-colors duration-300 text-white rounded-md flex items-center gap-x-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover;
+  }
+
+  .btn-accent {
+    @apply bg-accent hover:bg-accent-hover;
+  }
+}
