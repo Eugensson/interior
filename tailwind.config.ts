@@ -32,6 +32,7 @@ export default {
       project: "url('/images/banner_4.jpg')",
       blog: "url('/images/banner_7.jpg')",
       contact: "url('/images/banner_10.jpg')",
+      faq: "url('/images/banner_11.jpg')",
       team: "url('/images/banner_8.jpg')",
       employee: "url('/images/banner_9.jpg')",
       pricing: "url('/images/banner_3.jpg')",
@@ -49,6 +50,28 @@ export default {
           secondary: "#f4f0ec",
           hover: "#b88c5d",
         },
+      },
+      keyframes: {
+        "accordion-down": {
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
