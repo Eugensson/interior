@@ -29,6 +29,7 @@ export default {
       services: "url('/images/banner_5.jpg')",
       service: "url('/images/banner_6.jpg')",
       projects: "url('/images/banner_2.jpg')",
+      project: "url('/images/banner_4.jpg')",
       blog: "url('/images/banner_7.jpg')",
       contact: "url('/images/banner_10.jpg')",
       team: "url('/images/banner_8.jpg')",

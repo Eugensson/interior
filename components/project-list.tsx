@@ -56,7 +56,7 @@ export const ProjectList = () => {
                 </CardDescription>
               </div>
               <Link
-                href={`/project/${project.slug}`}
+                href={`/projects/${project.slug}`}
                 className="w-16 h-16 rounded-full text-primary hover:text-white focus:text-white bg-accent-secondary hover:bg-accent focus:bg-accent focus:outline-white transition-colors duration-300 flex justify-center items-center"
               >
                 <ChevronRight />
