@@ -1,10 +1,9 @@
 import Image from "next/image";
 
+import { Invite } from "@/components/invite";
 import { ServiceCard } from "@/components/service-card";
 
 import { SERVICES_LIST } from "@/lib/constants";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 const Services = () => {
   return (
@@ -146,17 +145,8 @@ const Services = () => {
             </div>
           </li>
         </ul>
-        <div className="my-48 py-20 bg-primary text-white rounded-[70px] text-center">
-          <h3 className="h2 text-white mb-4">Wanna join the interno?</h3>
-          <p className="text-xl mb-8">
-            It is a long established fact will be distracted.
-          </p>
-          <Button size="lg" variant="accent" className="capitalize">
-            Contact with us
-            <ArrowRight size={24} className="text-primary" />
-          </Button>
-        </div>
       </div>
+      <Invite />
     </section>
   );
 };
