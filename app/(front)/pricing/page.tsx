@@ -10,6 +10,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
 
 const Pricing = () => {
   return (
@@ -22,8 +24,8 @@ const Pricing = () => {
       </div>
       <ul className="container py-[150px] grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-5 lg:gap-10">
         <li>
-          <Card className="rounded-3xl bg-accent-secondary p-5">
-            <CardHeader>
+          <Card className="rounded-3xl bg-accent-secondary py-5">
+            <CardHeader className="px-5">
               <CardTitle className="font-primary tracking-wide font-normal text-center">
                 Design advices
               </CardTitle>
@@ -34,8 +36,9 @@ const Pricing = () => {
                 /per month
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <ul className="flex flex-col gap-y-2 text-secondary text-base">
+            <CardContent className="px-0">
+              <Separator className="my-8" />
+              <ul className="px-5 flex flex-col gap-y-2 text-secondary text-base">
                 <li className="flex items-center gap-x-2">
                   <CircleCheck size={18} className="text-accent" />
                   General living space advices
@@ -58,7 +61,7 @@ const Pricing = () => {
                 </li>
               </ul>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="px-5">
               <Button size="lg" variant="accent" className="w-full" asChild>
                 <Link href="/" className="capitalize text-white">
                   Get started
@@ -69,8 +72,8 @@ const Pricing = () => {
           </Card>
         </li>
         <li>
-          <Card className="rounded-3xl bg-accent-secondary p-5">
-            <CardHeader>
+          <Card className="rounded-3xl bg-accent-secondary py-5">
+            <CardHeader className="px-5">
               <CardTitle className="font-primary tracking-wide font-normal text-center">
                 Complete interior
               </CardTitle>
@@ -81,8 +84,14 @@ const Pricing = () => {
                 /per month
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <ul className="flex flex-col gap-y-2 text-secondary text-base">
+            <CardContent className="px-0">
+              <div className="relative min-h-16">
+                <Separator className="absolute left-0 top-0 my-8 bg-primary" />
+                <Badge className="absolute top-2.5 left-16 px-11 py-2 text-base">
+                  Most Popular Plans
+                </Badge>
+              </div>
+              <ul className="px-5 flex flex-col gap-y-2 text-secondary text-base">
                 <li className="flex items-center gap-x-2">
                   <CircleCheck size={18} className="text-accent" />
                   Complete home redesign
@@ -105,7 +114,7 @@ const Pricing = () => {
                 </li>
               </ul>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="px-5">
               <Button size="lg" className="w-full" asChild>
                 <Link href="/" className="capitalize text-white">
                   Get started
@@ -116,8 +125,8 @@ const Pricing = () => {
           </Card>
         </li>
         <li>
-          <Card className="rounded-3xl bg-accent-secondary p-5">
-            <CardHeader>
+          <Card className="rounded-3xl bg-accent-secondary py-5">
+            <CardHeader className="px-5">
               <CardTitle className="font-primary tracking-wide font-normal text-center">
                 Furniture design
               </CardTitle>
@@ -128,8 +137,9 @@ const Pricing = () => {
                 /per month
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <ul className="flex flex-col gap-y-2 text-secondary text-base">
+            <CardContent className="px-0">
+              <Separator className="my-8" />
+              <ul className="px-5 flex flex-col gap-y-2 text-secondary text-base">
                 <li className="flex items-center gap-x-2">
                   <CircleCheck size={18} className="text-accent" />
                   Furniture for living room
@@ -152,7 +162,7 @@ const Pricing = () => {
                 </li>
               </ul>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="px-5">
               <Button size="lg" variant="accent" className="w-full" asChild>
                 <Link href="/" className="capitalize text-white">
                   Get started
