@@ -33,6 +33,7 @@ export default {
       contact: "url('/images/banner_10.jpg')",
       team: "url('/images/banner_8.jpg')",
       employee: "url('/images/banner_9.jpg')",
+      pricing: "url('/images/banner_3.jpg')",
       grid: "url('/images/grid.png')",
     },
     extend: {
