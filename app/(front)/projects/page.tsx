@@ -1,3 +1,4 @@
+import { PaginationBar } from "@/components/pagination-bar";
 import { ProdectCard } from "@/components/project-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -41,6 +42,7 @@ const Projects = () => {
           </TabsContent>
         ))}
       </Tabs>
+      <PaginationBar />
     </section>
   );
 };
