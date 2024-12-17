@@ -2,10 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
-import { Project } from "@/lib/types";
-
-import { PROJECT_LIST } from "@/lib/constants";
-
 import {
   Card,
   CardContent,
@@ -13,8 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Project } from "@/lib/models/project-model";
+import { getLatestProjects } from "@/lib/services/project";
 
-export const ProjectList = () => {
+export const ProjectList = async () => {
+  const latestProjects = await getLatestProjects();
+
   const getBorderClass = (index: number) => {
     switch (index) {
       case 0:
@@ -32,14 +32,14 @@ export const ProjectList = () => {
 
   return (
     <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-y-14 md:gap-x-28">
-      {PROJECT_LIST.slice(0, 4).map((project: Project, index: number) => (
+      {latestProjects.map((project: Project, index: number) => (
         <li key={project.slug}>
           <Card className="border-none">
             <CardContent
               className={`p-0 overflow-hidden ${getBorderClass(index)}`}
             >
               <Image
-                src={project.imagethumb}
+                src={project.thumbnail}
                 alt={project.title}
                 width={400}
                 height={300}

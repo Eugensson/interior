@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
 import {
@@ -9,15 +10,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Article } from "@/lib/types";
-import Image from "next/image";
+import { Article } from "@/lib/models/article-model";
 
 export const ArticleCard = ({ article }: { article: Article }) => {
   return (
     <Card className="p-6 rounded-3xl group hover:bg-accent-secondary focus:bg-accent-secondary">
       <CardContent className="p-0 overflow-hidden rounded-t-3xl mb-5">
         <Image
-          src={article.imagethumb}
+          src={article.thumbnail}
           alt={article.title}
           width={400}
           height={400}
@@ -30,9 +30,14 @@ export const ArticleCard = ({ article }: { article: Article }) => {
         </CardTitle>
       </CardHeader>
       <CardFooter className="p-0 flex items-center justify-between">
-        <p className="text-secondary text-base">{article.date}</p>
+        <p className="text-secondary text-base">
+          {new Date(article.createdAt)
+            .toLocaleDateString()
+            .split(".")
+            .join("/")}
+        </p>
         <Link
-          href={`/project/${article.slug}`}
+          href={`/blog/${article.slug}`}
           className="w-16 h-16 rounded-full bg-accent-secondary group-hover:bg-white transition-colors duration-300 flex justify-center items-center"
         >
           <ChevronRight className="text-primary" />

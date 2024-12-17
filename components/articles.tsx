@@ -1,8 +1,11 @@
 import { ArticleCard } from "@/components/article-card";
 
-import { ARTICLE_LIST } from "@/lib/constants";
+import { Article } from "@/lib/models/article-model";
+import { getLatestArticles } from "@/lib/services/article";
 
-export const Articles = () => {
+export const Articles = async () => {
+  const latestArticles = await getLatestArticles();
+
   return (
     <section className="container pt-[200px] flex flex-col items-center gap-y-10">
       <h2 className="h2">Articles & News</h2>
@@ -12,7 +15,7 @@ export const Articles = () => {
         using.
       </p>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-        {ARTICLE_LIST.slice(0, 3).map((article) => (
+        {latestArticles.slice(0, 3).map((article: Article) => (
           <li key={article.slug}>
             <ArticleCard article={article} />
           </li>

@@ -15,3 +15,7 @@ export const createAvatarFallback = (value: string) => {
     .map((name) => name[0].toUpperCase())
     .join("");
 };
+
+export const formatNumber = (value: number) => {
+  return String(value).padStart(2, "0");
+};

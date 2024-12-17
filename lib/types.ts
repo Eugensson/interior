@@ -21,21 +21,6 @@ export type Service = {
   descriptions: string;
 };
 
-export type Project = {
-  title: string;
-  slug: string;
-  descriptions: string;
-  tags: string[];
-  category: string;
-  imagethumb: string;
-  images: string[];
-};
-
-export type Stat = {
-  countNum: number;
-  text: string;
-};
-
 export type Article = {
   title: string;
   slug: string;

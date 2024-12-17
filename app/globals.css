@@ -28,6 +28,10 @@
     @apply text-2xl;
   }
 
+  .h4 {
+    @apply text-xl;
+  }
+
   .btn {
     @apply h-20 px-8 transition-colors duration-300 text-white rounded-md flex items-center gap-x-2;
   }

@@ -2,9 +2,13 @@
 
 import CountUp from "react-countup";
 
-import { Stat } from "@/lib/types";
-
-export const StatItem = ({ countNum, text }: Stat) => {
+export const StatItem = ({
+  countNum,
+  text,
+}: {
+  countNum: number;
+  text: string;
+}) => {
   return (
     <div className="font-primary text-center">
       <CountUp

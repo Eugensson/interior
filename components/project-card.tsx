@@ -9,15 +9,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-import { Project } from "@/lib/types";
+import { Project } from "@/lib/models/project-model";
 
 export const ProdectCard = ({ project }: { project: Project }) => {
   return (
     <Card className="border-none">
       <CardContent className="p-0 overflow-hidden">
         <Image
-          src={project.imagethumb}
+          src={project.thumbnail}
           alt={project.title}
           width={600}
           height={600}

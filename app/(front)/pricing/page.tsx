@@ -22,7 +22,7 @@ const Pricing = () => {
           <p className="h4 text-secondary">Home / Pricing</p>
         </div>
       </div>
-      <ul className="container py-[150px] grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-5 lg:gap-10">
+      <ul className="container py-20 grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-5 lg:gap-10">
         <li>
           <Card className="rounded-3xl bg-accent-secondary py-5">
             <CardHeader className="px-5">

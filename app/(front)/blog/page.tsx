@@ -1,13 +1,47 @@
-import { ARTICLE_LIST } from "@/lib/constants";
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
+
+import { Pagination } from "@/components/pagination";
 import { ArticleCard } from "@/components/article-card";
-import { PaginationBar } from "@/components/pagination-bar";
 
-const latestPost = ARTICLE_LIST[0];
+import { getByQuery } from "@/lib/services/article";
+import { Article } from "@/lib/models/article-model";
 
-const Blog = () => {
+const Blog = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    q: string;
+    category: string;
+    tag: string;
+    page: string;
+  }>;
+}) => {
+  const { q = "", category = "", tag = "", page = "1" } = await searchParams;
+
+  const getFilterUrl = ({
+    c,
+    t,
+    pg,
+  }: {
+    c?: string;
+    t?: string;
+    pg?: string;
+  }) => {
+    const params: Record<string, string> = { q, category, tag, page };
+
+    if (c) params.category = c;
+    if (t) params.tag = t;
+    if (pg) params.page = pg;
+
+    return `/blog?${new URLSearchParams(params).toString()}`;
+  };
+
+  const { articles, totalPages } = await getByQuery({ q, category, tag });
+
+  const latestPost = articles[0];
+
   return (
     <section>
       <div className="relative bg-blog bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
@@ -22,7 +56,7 @@ const Blog = () => {
           <article className="flex">
             <div className="flex-1 relative aspect-square overflow-hidden rounded-3xl">
               <Image
-                src={latestPost.imagethumb}
+                src={latestPost.thumbnail}
                 alt="Interior Photo"
                 fill
                 quality={100}
@@ -32,10 +66,15 @@ const Blog = () => {
             <div className="flex-1 space-y-6 p-12">
               <h3 className="h2 capitalize">{latestPost.title}</h3>
               <p className="text-secondary text-lg line-clamp-6">
-                {latestPost.description}
+                {latestPost.descriptions}
               </p>
               <div className="flex justify-between items-center">
-                <p className="text-secondary text-base">{latestPost.date}</p>
+                <p className="text-secondary text-base">
+                  {new Date(latestPost.createdAt)
+                    .toLocaleDateString()
+                    .split(".")
+                    .join("/")}
+                </p>
                 <Link
                   href={`/blog/${latestPost.slug}`}
                   className="w-14 h-14 rounded-full text-primary hover:text-white focus:text-white bg-accent-secondary hover:bg-accent focus:bg-accent focus:outline-white transition-colors duration-300 flex justify-center items-center"
@@ -49,13 +88,19 @@ const Blog = () => {
         <div className="flex flex-col gap-12">
           <h2 className="h2 capitalize mb-7">Articles & News</h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-7">
-            {ARTICLE_LIST.slice(1, undefined).map((item) => (
-              <li key={item.slug}>
-                <ArticleCard article={item} />
+            {articles.slice(1, undefined).map((article: Article) => (
+              <li key={article.slug}>
+                <ArticleCard article={article} />
               </li>
             ))}
           </ul>
-          <PaginationBar />
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={Number(page)}
+              totalPages={totalPages}
+              getFilterUrl={getFilterUrl}
+            />
+          )}
         </div>
       </div>
     </section>
