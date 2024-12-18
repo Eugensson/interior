@@ -6,16 +6,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { SectionHeader } from "@/components/section-header";
 
 const Faq = () => {
   return (
-    <section>
-      <div className="relative bg-faq bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl">
-          <h1 className="h2 text-accent mb-2">F.A.Q.</h1>
-          <p className="h4 text-secondary">Home / Faq</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader title="F.A.Q." subtitle="Home / Faq" className="bg-faq" />
       <div className="container py-20 text-center space-y-20">
         <h2 className="h2 mb-12">Every Question Answered</h2>
         <div className="flex gap-20">
@@ -152,7 +148,7 @@ const Faq = () => {
           </Accordion>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

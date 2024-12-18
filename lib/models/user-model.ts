@@ -40,6 +40,10 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
+UserSchema.methods.comparePassword = async function (password: string) {
+  return await bcrypt.compare(password, this.password);
+};
+
 UserSchema.set("toJSON", {
   transform: (_, ret) => {
     delete ret.password;

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply font-secondary text-secondary text-xl;
+    @apply font-secondary text-secondary;
   }
 
   h1,

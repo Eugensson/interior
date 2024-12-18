@@ -4,19 +4,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { NAV_HEADER_LINKS } from "@/lib/constants";
+import { NAV_FOOTER_LINKS } from "@/lib/constants";
 
-export const Nav = () => {
+export const FooterNav = () => {
   const pathname = usePathname();
 
   return (
     <nav className="hidden md:block">
-      <ul className="flex items-center md:gap-x-4 lg:gap-x-8 font-secondary">
-        {NAV_HEADER_LINKS.map(({ name, href }) => (
+      <ul className="flex flex-col gap-y-2">
+        {NAV_FOOTER_LINKS.map(({ name, href }) => (
           <li key={name}>
             <Link
               href={href}
-              className={cn("", pathname === href && "text-accent underline")}
+              className={cn(
+                "hover:text-accent transition-colors duration-300",
+                pathname === href && "text-accent"
+              )}
             >
               {name}
             </Link>

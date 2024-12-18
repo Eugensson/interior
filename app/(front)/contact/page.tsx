@@ -4,16 +4,16 @@ import { Earth, Mail, MapPin, Phone } from "lucide-react";
 
 import { Socials } from "@/components/socials";
 import { ContactForm } from "@/components/contact-form";
+import { SectionHeader } from "@/components/section-header";
 
 const Contact = () => {
   return (
-    <section>
-      <div className="relative bg-contact bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl">
-          <h1 className="h2 text-accent mb-2">Contact Us</h1>
-          <p className="h4 text-secondary">Home / Contact</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader
+        title="Contact Us"
+        subtitle="Home / Contact"
+        className="bg-contact"
+      />
       <div className="container py-20">
         <h2 className="h2 text-center mb-20">
           We love meeting new people
@@ -77,7 +77,7 @@ const Contact = () => {
         />
         <MapPin size={40} className="absolute top-40 left-80 text-accent" />
       </div>
-    </section>
+    </>
   );
 };
 

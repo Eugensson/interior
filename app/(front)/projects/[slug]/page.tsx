@@ -1,4 +1,5 @@
 import { GalleryImages } from "@/components/gallery-images";
+import { SectionHeader } from "@/components/section-header";
 
 import { formatProjectDate } from "@/lib/utils";
 import { getBySlug } from "@/lib/services/project";
@@ -32,13 +33,12 @@ const ProjectDetails = async ({
   const project = await getBySlug(slug);
 
   return (
-    <section>
-      <div className="relative bg-project bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl">
-          <h1 className="h2 text-accent mb-2 capitalize">{project.title}</h1>
-          <p className="h4 text-secondary">Home / Project details</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader
+        title={`${project.title}`}
+        subtitle="Home / Project details"
+        className="bg-project"
+      />
       <div className="container py-20 space-y-10">
         <div className="flex gap-10">
           <ul className="w-[500px] h-fit bg-accent-secondary flex flex-col gap-y-5 py-14 px-10 rounded-3xl">
@@ -78,7 +78,7 @@ const ProjectDetails = async ({
         </div>
         <GalleryImages images={project.images} />
       </div>
-    </section>
+    </>
   );
 };
 

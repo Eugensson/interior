@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react";
 
 import { Pagination } from "@/components/pagination";
 import { ArticleCard } from "@/components/article-card";
+import { SectionHeader } from "@/components/section-header";
 
 import { formatDate } from "@/lib/utils";
 import { getByQuery } from "@/lib/services/article";
@@ -44,13 +45,12 @@ const Blog = async ({
   const latestPost = articles[0];
 
   return (
-    <section>
-      <div className="relative bg-blog bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl">
-          <h1 className="h2 text-accent mb-2">Articles & News</h1>
-          <p className="h4 text-secondary">Home / Blog</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader
+        title="Articles & News"
+        subtitle="Home / Blog"
+        className="bg-blog"
+      />
       <div className="container py-20 space-y-20">
         {articles.length > 0 && (
           <div className="flex flex-col gap-12">
@@ -107,7 +107,7 @@ const Blog = async ({
           )}
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

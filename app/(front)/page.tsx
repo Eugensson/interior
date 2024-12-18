@@ -10,17 +10,17 @@ import { Testimonials } from "@/components/testimonials";
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <>
       <Hero />
       <Preference />
       <Estimate />
       <Testimonials />
-      <BrandList className="container" />
+      <BrandList />
       <OurProjects />
       <StatList />
       <Articles />
       <Invite />
-    </div>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import { RiDoubleQuotesL } from "react-icons/ri";
 import { Filter } from "@/components/filter";
 import { Socials } from "@/components/socials";
 import { ContactForm } from "@/components/contact-form";
+import { SectionHeader } from "@/components/section-header";
 
 import { formatDate } from "@/lib/utils";
 import { getBySlug, getCategories, getTags } from "@/lib/services/article";
@@ -39,15 +40,12 @@ const ArticlesDetails = async ({
   const categories = await getCategories();
 
   return (
-    <section>
-      <div className="relative bg-article bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl px-5">
-          <h1 className="h2 text-accent mb-2 capitalize truncate">
-            {article.title}
-          </h1>
-          <p className="h4 text-secondary">Home / Article Details</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader
+        title={`${article.title}`}
+        subtitle="Home / Article Details"
+        className="bg-article"
+      />
       <div className="container py-20 flex gap-12">
         <div className="flex-1 flex flex-col">
           <h2 className="h2 mb-5">{article.title}</h2>
@@ -91,7 +89,7 @@ const ArticlesDetails = async ({
           articleTags={article.tags}
         />
       </div>
-    </section>
+    </>
   );
 };
 

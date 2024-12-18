@@ -5,16 +5,22 @@ import {
   RiInstagramLine,
 } from "react-icons/ri";
 
-export const NAV_LINKS = [
+export const NAV_HEADER_LINKS = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Team", href: "/team" },
   { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Blog", href: "/blog" },
-  { name: "FAQ", href: "/faq" },
   { name: "Contact", href: "/contact" },
+];
+
+export const NAV_FOOTER_LINKS = [
+  { name: "About Us", href: "/about" },
+  { name: "Our Team", href: "/team" },
+  { name: "Our Services", href: "/services" },
+  { name: "Our Projects", href: "/projects" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "Blog & News", href: "/blog" },
+  { name: "FAQ", href: "/faq" },
 ];
 
 export const SOCIAL_LINKS = [

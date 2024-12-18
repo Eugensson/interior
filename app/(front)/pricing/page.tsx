@@ -12,16 +12,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import { SectionHeader } from "@/components/section-header";
 
 const Pricing = () => {
   return (
-    <section>
-      <div className="relative bg-pricing bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl">
-          <h1 className="h2 text-accent mb-2">Pricing & Plan</h1>
-          <p className="h4 text-secondary">Home / Pricing</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader
+        title="Pricing & Plan"
+        subtitle="Home / Pricing"
+        className="bg-pricing"
+      />
       <ul className="container py-20 grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-5 lg:gap-10">
         <li>
           <Card className="rounded-3xl bg-accent-secondary py-5">
@@ -173,7 +173,7 @@ const Pricing = () => {
           </Card>
         </li>
       </ul>
-    </section>
+    </>
   );
 };
 

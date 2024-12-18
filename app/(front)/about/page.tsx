@@ -6,18 +6,18 @@ import { RiDoubleQuotesL } from "react-icons/ri";
 import { Button } from "@/components/ui/button";
 import { TeamCard } from "@/components/team-card";
 import { AboutCompare } from "@/components/about-compare";
+import { SectionHeader } from "@/components/section-header";
 
 import { TEAM_LIST } from "@/lib/constants";
 
 const AboutUs = () => {
   return (
-    <section>
-      <div className="relative bg-about bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl">
-          <h1 className="h2 text-accent mb-2">About Us</h1>
-          <p className="h4 text-secondary">Home / About</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader
+        title="About Us"
+        subtitle="Home / About"
+        className="bg-about"
+      />
       <div className="container py-20 flex flex-col items-center">
         <div className="relative w-[800px] py-20 px-16 border-[12px] rounded-[40px] border-accent-secondary">
           <RiDoubleQuotesL size={60} className="mx-auto text-accent mb-4" />
@@ -78,7 +78,7 @@ const AboutUs = () => {
           </Button>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

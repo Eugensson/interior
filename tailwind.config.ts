@@ -36,6 +36,7 @@ export default {
       employee: "url('/images/banner_9.jpg')",
       contact: "url('/images/banner_10.jpg')",
       faq: "url('/images/banner_11.jpg')",
+      login: "url('/images/banner_13.jpg')",
       about: "url('/images/banner_15.jpg')",
       grid: "url('/images/grid.png')",
     },

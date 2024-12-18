@@ -2,18 +2,18 @@ import Image from "next/image";
 
 import { Invite } from "@/components/invite";
 import { ServiceCard } from "@/components/service-card";
+import { SectionHeader } from "@/components/section-header";
 
 import { SERVICES_LIST } from "@/lib/constants";
 
 const Services = () => {
   return (
-    <section>
-      <div className="relative bg-services bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl">
-          <h1 className="h2 text-accent mb-2">Services</h1>
-          <p className="h4 text-secondary">Home / Services</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader
+        title="Services"
+        subtitle="Home / Services"
+        className="bg-services"
+      />
       <ul className="container py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {SERVICES_LIST.map((item) => (
           <li key={item.slug}>
@@ -147,7 +147,7 @@ const Services = () => {
         </ul>
       </div>
       <Invite />
-    </section>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Pagination } from "@/components/pagination";
 import { ProdectCard } from "@/components/project-card";
+import { SectionHeader } from "@/components/section-header";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Project } from "@/lib/models/project-model";
@@ -33,13 +34,12 @@ const Projects = async ({
   };
 
   return (
-    <section>
-      <div className="relative bg-projects bg-contain bg-no-repeat bg-center min-h-[300px] min-w-screen">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-fit py-5 text-center bg-white rounded-t-3xl">
-          <h1 className="h2 text-accent mb-2">Our Projects</h1>
-          <p className="h4 text-secondary">Home / Projects</p>
-        </div>
-      </div>
+    <>
+      <SectionHeader
+        title="Our Projects"
+        subtitle="Home / Projects"
+        className="bg-projects"
+      />
       <Tabs
         defaultValue="bathroom"
         className="container py-10 w-full flex flex-col items-center"
@@ -65,7 +65,7 @@ const Projects = async ({
           getFilterUrl={getFilterUrl}
         />
       )}
-    </section>
+    </>
   );
 };
 
