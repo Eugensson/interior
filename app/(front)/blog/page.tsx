@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { Pagination } from "@/components/pagination";
 import { ArticleCard } from "@/components/article-card";
 
+import { formatDate } from "@/lib/utils";
 import { getByQuery } from "@/lib/services/article";
 import { Article } from "@/lib/models/article-model";
 
@@ -51,48 +52,51 @@ const Blog = async ({
         </div>
       </div>
       <div className="container py-20 space-y-20">
-        <div className="flex flex-col gap-12">
-          <h2 className="h2 capitalize mb-7">Latest post</h2>
-          <article className="flex">
-            <div className="flex-1 relative aspect-square overflow-hidden rounded-3xl">
-              <Image
-                src={latestPost.thumbnail}
-                alt="Interior Photo"
-                fill
-                quality={100}
-                className="object-cover object-center"
-              />
-            </div>
-            <div className="flex-1 space-y-6 p-12">
-              <h3 className="h2 capitalize">{latestPost.title}</h3>
-              <p className="text-secondary text-lg line-clamp-6">
-                {latestPost.descriptions}
-              </p>
-              <div className="flex justify-between items-center">
-                <p className="text-secondary text-base">
-                  {new Date(latestPost.createdAt)
-                    .toLocaleDateString()
-                    .split(".")
-                    .join("/")}
-                </p>
-                <Link
-                  href={`/blog/${latestPost.slug}`}
-                  className="w-14 h-14 rounded-full text-primary hover:text-white focus:text-white bg-accent-secondary hover:bg-accent focus:bg-accent focus:outline-white transition-colors duration-300 flex justify-center items-center"
-                >
-                  <ChevronRight />
-                </Link>
+        {articles.length > 0 && (
+          <div className="flex flex-col gap-12">
+            <h2 className="h2 capitalize mb-7">Latest post</h2>
+            <article className="flex">
+              <div className="flex-1 relative aspect-square overflow-hidden rounded-3xl">
+                <Image
+                  src={latestPost.thumbnail}
+                  alt="Interior Photo"
+                  fill
+                  quality={100}
+                  className="object-cover object-center"
+                />
               </div>
-            </div>
-          </article>
-        </div>
+              <div className="flex-1 space-y-6 p-12">
+                <h3 className="h2 capitalize">{latestPost.title}</h3>
+                <p className="text-secondary text-lg line-clamp-6">
+                  {latestPost.descriptions}
+                </p>
+                <div className="flex justify-between items-center">
+                  <p className="text-secondary text-base">
+                    {formatDate(latestPost.createdAt)}
+                  </p>
+                  <Link
+                    href={`/blog/${latestPost.slug}`}
+                    className="w-14 h-14 rounded-full text-primary hover:text-white focus:text-white bg-accent-secondary hover:bg-accent focus:bg-accent focus:outline-white transition-colors duration-300 flex justify-center items-center"
+                  >
+                    <ChevronRight />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          </div>
+        )}
         <div className="flex flex-col gap-12">
           <h2 className="h2 capitalize mb-7">Articles & News</h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-7">
-            {articles.slice(1, undefined).map((article: Article) => (
-              <li key={article.slug}>
-                <ArticleCard article={article} />
-              </li>
-            ))}
+            {articles.length > 0 ? (
+              articles.slice(1, undefined).map((article: Article) => (
+                <li key={article.slug}>
+                  <ArticleCard article={article} />
+                </li>
+              ))
+            ) : (
+              <li>No articles found</li>
+            )}
           </ul>
           {totalPages > 1 && (
             <Pagination

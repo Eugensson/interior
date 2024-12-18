@@ -1,11 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Earth, Mail, MapPin, Phone } from "lucide-react";
+import { Earth, Mail, MapPin, Phone } from "lucide-react";
 
-import { Input } from "@/components/ui/input";
 import { Socials } from "@/components/socials";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { ContactForm } from "@/components/contact-form";
 
 const Contact = () => {
   return (
@@ -66,21 +64,7 @@ const Contact = () => {
             </ul>
             <Socials className="ml-2" />
           </div>
-          <form className="col-span-2 flex flex-col gap-8">
-            <div className="flex gap-4">
-              <Input placeholder="Name" />
-              <Input placeholder="Email" />
-            </div>
-            <div className="flex gap-4">
-              <Input placeholder="Subject" />
-              <Input placeholder="Phone" />
-            </div>
-            <Textarea placeholder="Hello Iam Intrested in..." />
-            <Button size="lg" className="w-fit ml-auto">
-              Send Now
-              <ArrowRight size={24} className="text-accent ml-4" />
-            </Button>
-          </form>
+          <ContactForm btnStyles="ml-auto" />
         </div>
       </div>
       <div className="container mb-20 rounded-3xl overflow-hidden h-[500px] relative">

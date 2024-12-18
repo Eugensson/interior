@@ -20,14 +20,3 @@ export type Service = {
   slug: string;
   descriptions: string;
 };
-
-export type Article = {
-  title: string;
-  slug: string;
-  description: string;
-  category: string;
-  imagethumb: string;
-  images: string[];
-  tags: string[];
-  date: string;
-};

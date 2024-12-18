@@ -1,5 +1,6 @@
 import { GalleryImages } from "@/components/gallery-images";
 
+import { formatProjectDate } from "@/lib/utils";
 import { getBySlug } from "@/lib/services/project";
 
 export const generateMetadata = async ({
@@ -58,10 +59,7 @@ const ProjectDetails = async ({
             </li>
             <li className="flex justify-between items-end capitalize text-lg">
               <h4 className="h4">Date</h4>
-              {new Date(project.createdAt)
-                .toLocaleDateString()
-                .split(".")
-                .join("/")}
+              {formatProjectDate(project.createdAt)}
             </li>
             <li className="flex justify-between items-end capitalize text-lg">
               <h4 className="h4">Designers</h4>

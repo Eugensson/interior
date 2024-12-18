@@ -4,7 +4,7 @@ import { Article, ArticleModel } from "@/lib/models/article-model";
 
 export const revalidate = 3600;
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 7;
 
 type GetArticlesResponse = {
   articles: Article[];
@@ -70,7 +70,10 @@ export const getByQuery = cache(
     const filters: Record<string, any> = {};
 
     if (q) {
-      filters.name = { $regex: q, $options: "i" };
+      filters.$or = [
+        { title: { $regex: q, $options: "i" } },
+        { descriptions: { $regex: q, $options: "i" } },
+      ];
     }
 
     if (category) {

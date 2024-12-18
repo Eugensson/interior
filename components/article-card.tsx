@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/models/article-model";
 
 export const ArticleCard = ({ article }: { article: Article }) => {
@@ -31,10 +32,7 @@ export const ArticleCard = ({ article }: { article: Article }) => {
       </CardHeader>
       <CardFooter className="p-0 flex items-center justify-between">
         <p className="text-secondary text-base">
-          {new Date(article.createdAt)
-            .toLocaleDateString()
-            .split(".")
-            .join("/")}
+          {formatDate(article.createdAt)}
         </p>
         <Link
           href={`/blog/${article.slug}`}
