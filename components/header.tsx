@@ -1,5 +1,6 @@
 import { Nav } from "@/components/nav";
 import { Logo } from "@/components/logo";
+import { MobileMenu } from "@/components/mobile-menu";
 
 export const Header = () => {
   return (
@@ -7,6 +8,7 @@ export const Header = () => {
       <div className="container flex items-center justify-between">
         <Logo />
         <Nav />
+        <MobileMenu />
       </div>
     </header>
   );

@@ -1,18 +1,21 @@
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 export const Invite = () => {
   return (
-    <section className="container py-[200px]">
-      <div className="bg-primary py-20 text-white rounded-[70px] text-center">
+    <section className="container pb-5 md:pb-10 lg:pb-20">
+      <div className="bg-primary py-20 text-white rounded-3xl text-center">
         <h3 className="h2 text-white mb-4">Wanna join the interno?</h3>
-        <p className="text-xl mb-8">
+        <p className="mb-8">
           It is a long established fact will be distracted.
         </p>
-        <Button size="lg" variant="accent" className="capitalize">
-          Contact with us
-          <ArrowRight size={24} className="text-primary" />
+        <Button variant="accent" className="p-6" asChild>
+          <Link href="/contact" className="flex items-center gap-2 capitalize">
+            Contact with us
+            <ArrowRight className="text-primary" />
+          </Link>
         </Button>
       </div>
     </section>

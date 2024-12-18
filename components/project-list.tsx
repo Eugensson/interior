@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import { Project } from "@/lib/models/project-model";
 import { getLatestProjects } from "@/lib/services/project";
 
@@ -31,7 +32,7 @@ export const ProjectList = async () => {
   };
 
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-y-14 md:gap-x-28">
+    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-5 lg:gap-10">
       {latestProjects.map((project: Project, index: number) => (
         <li key={project.slug}>
           <Card className="border-none">

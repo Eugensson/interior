@@ -9,7 +9,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Service } from "@/lib/types";
+export type Service = {
+  title: string;
+  slug: string;
+  descriptions: string;
+};
 
 export const ServiceCard = ({ item }: { item: Service }) => {
   return (

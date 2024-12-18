@@ -2,21 +2,30 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-import { SOCIAL_LINKS } from "@/lib/constants";
+export type SocialItem = {
+  label: string;
+  href: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
 
-export const Socials = ({ className }: { className?: string }) => {
+interface SocialsProps {
+  items: SocialItem[];
+  className?: string;
+}
+
+export const Socials = ({ items, className }: SocialsProps) => {
   return (
     <ul className={cn("flex items-center gap-x-4", className)}>
-      {SOCIAL_LINKS.map(({ name, href, icon: Icon }) => (
-        <li key={name}>
+      {items.map(({ label, href, icon: Icon }) => (
+        <li key={label}>
           <Link
             href={href}
             className="flex items-center gap-x-2 text-[40px] text-primary hover:text-accent font-primary transition-colors duration-300"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={name}
+            aria-label={label}
           >
-            <Icon size={22} />
+            <Icon className="size-6" />
           </Link>
         </li>
       ))}

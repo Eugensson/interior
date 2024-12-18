@@ -19,9 +19,9 @@ const AboutUs = () => {
         className="bg-about"
       />
       <div className="container py-20 flex flex-col items-center">
-        <div className="relative w-[800px] py-20 px-16 border-[12px] rounded-[40px] border-accent-secondary">
+        <div className="relative w-[800px] p-20 border-[12px] rounded-[40px] border-accent-secondary">
           <RiDoubleQuotesL size={60} className="mx-auto text-accent mb-4" />
-          <p className="max-w-[750px] text-3xl text-center italic mb-6">
+          <p className="max-w-[750px] text-2xl text-center italic mb-6">
             I like an interior that defies labeling. I don&apos;t really want
             someone to walk into a room and know that I did it
           </p>
@@ -35,33 +35,43 @@ const AboutUs = () => {
       </div>
       <div className="container py-20 flex flex-col gap-y-10">
         <div className="flex flex-col gap-y-5">
-          <h3 className="h2 font-primary">What We Do</h3>
+          <h3 className="h2">What We Do</h3>
           <p className="text-secondary max-w-[500px]">
             It is a long established fact that a reader will be distracted by
             the of readable content of a page when lookings at its layouts the
             points of using that it has a more-or-less normal.
           </p>
-          <Button size="lg" className="w-fit">
-            Our Concept
-            <ArrowRight size={24} className="text-accent" />
+          <Button className="w-fit p-6" asChild>
+            <Link
+              href="/services"
+              className="flex items-center gap-2 capitalize"
+            >
+              Our Concept
+              <ArrowRight size={24} className="text-accent" />
+            </Link>
           </Button>
         </div>
         <AboutCompare />
         <div className="flex flex-col items-end gap-y-5">
-          <h3 className="h2 font-primary">The End Result</h3>
-          <p className="text-secondary max-w-[500px]">
+          <h3 className="h2">The Final Result</h3>
+          <p className="max-w-[500px]">
             It is a long established fact that a reader will be distracted by
             the of readable content of a page when lookings at its layouts the
             points of using that it has a more-or-less normal.
           </p>
-          <Button size="lg" className="w-fit">
-            Our Portfolio
-            <ArrowRight size={24} className="text-accent" />
+          <Button className="w-fit p-6" asChild>
+            <Link
+              href="/projects"
+              className="flex items-center gap-2 capitalize"
+            >
+              Our Portfolio
+              <ArrowRight className="text-accent" />
+            </Link>
           </Button>
         </div>
       </div>
       <div className="bg-accent-secondary py-20">
-        <div className="container flex flex-col gap-y-20">
+        <div className="container flex flex-col gap-10">
           <h2 className="h2 capitalize text-center">Our team</h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {TEAM_LIST.slice(0, 4).map((item) => (
@@ -70,7 +80,7 @@ const AboutUs = () => {
               </li>
             ))}
           </ul>
-          <Button size="lg" className="w-fit mx-auto" asChild>
+          <Button className="w-fit mx-auto p-6" asChild>
             <Link href="/team">
               View All Team
               <ArrowRight size={24} className="text-accent" />

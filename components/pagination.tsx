@@ -17,7 +17,7 @@ export const Pagination = ({
   return (
     <ul className="container flex justify-center items-center gap-x-5">
       {currentPage > 1 && (
-        <li className="w-12 h-12 border border-accent flex justify-center items-center rounded-full hover:bg-accent-secondary hover:border-accent-secondary transition-colors duration-300">
+        <li className="w-10 h-10 border border-accent flex justify-center items-center rounded-full hover:bg-accent-secondary hover:border-accent-secondary transition-colors duration-300">
           <Link href={getFilterUrl({ pg: `${currentPage - 1}` })}>
             <ChevronLeft />
           </Link>
@@ -27,7 +27,7 @@ export const Pagination = ({
         <li
           key={p}
           className={cn(
-            "w-12 h-12 border border-accent flex justify-center items-center rounded-full hover:bg-accent-secondary hover:border-accent-secondary transition-colors duration-300",
+            "w-10 h-10 border border-accent flex justify-center items-center rounded-full hover:bg-accent-secondary hover:border-accent-secondary transition-colors duration-300",
             currentPage === p + 1
               ? "bg-accent-secondary border-accent-secondary"
               : ""
@@ -39,7 +39,7 @@ export const Pagination = ({
         </li>
       ))}
       {currentPage < totalPages && (
-        <li className="w-12 h-12 border border-accent flex justify-center items-center rounded-full hover:bg-accent-secondary hover:border-accent-secondary transition-colors duration-300">
+        <li className="w-10 h-10 border border-accent flex justify-center items-center rounded-full hover:bg-accent-secondary hover:border-accent-secondary transition-colors duration-300">
           <Link href={getFilterUrl({ pg: `${currentPage + 1}` })}>
             <ChevronRight />
           </Link>

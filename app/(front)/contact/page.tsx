@@ -6,6 +6,8 @@ import { Socials } from "@/components/socials";
 import { ContactForm } from "@/components/contact-form";
 import { SectionHeader } from "@/components/section-header";
 
+import { SOCIAL_LINKS } from "@/lib/constants";
+
 const Contact = () => {
   return (
     <>
@@ -62,7 +64,7 @@ const Contact = () => {
                 </Link>
               </li>
             </ul>
-            <Socials className="ml-2" />
+            <Socials items={SOCIAL_LINKS} className="ml-2" />
           </div>
           <ContactForm btnStyles="ml-auto" />
         </div>

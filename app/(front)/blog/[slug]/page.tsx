@@ -9,6 +9,8 @@ import { SectionHeader } from "@/components/section-header";
 import { formatDate } from "@/lib/utils";
 import { getBySlug, getCategories, getTags } from "@/lib/services/article";
 
+import { SOCIAL_LINKS } from "@/lib/constants";
+
 export const generateMetadata = async ({
   params,
 }: {
@@ -48,7 +50,7 @@ const ArticlesDetails = async ({
       />
       <div className="container py-20 flex gap-12">
         <div className="flex-1 flex flex-col">
-          <h2 className="h2 mb-5">{article.title}</h2>
+          <h2 className="h2 max-w-[500px] mb-5">{article.title}</h2>
           <div className="relative w-full h-[450px] rounded-3xl overflow-hidden mb-12">
             <Image
               src={article.thumbnail}
@@ -79,7 +81,7 @@ const ArticlesDetails = async ({
               {article.tags.slice(0, -1).map((tag) => tag + " / ")}
               {article.tags.slice(-1)}
             </p>
-            <Socials />
+            <Socials items={SOCIAL_LINKS} />
           </div>
           <ContactForm title="Leave a Reply" />
         </div>

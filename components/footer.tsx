@@ -1,8 +1,10 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/logo";
-import { Socials } from "@/components/socials";
 import { FooterNav } from "@/components/footer-nav";
+import { Socials } from "@/components/socials";
+
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const Footer = () => {
   return (
@@ -15,7 +17,7 @@ export const Footer = () => {
               It is a long established fact that a reader will be distracted
               lookings.
             </p>
-            <Socials />
+            <Socials items={SOCIAL_LINKS} />
           </li>
           <li className="space-y-4">
             <h4 className="h4">Pages</h4>

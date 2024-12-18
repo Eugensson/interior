@@ -21,18 +21,31 @@ export const NAV_FOOTER_LINKS = [
   { name: "Pricing", href: "/pricing" },
   { name: "Blog & News", href: "/blog" },
   { name: "FAQ", href: "/faq" },
+  { name: "Contact", href: "/contact" },
+];
+
+export const NAV_MOBILE_LINKS = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Projects", href: "/projects" },
+  { name: "Team", href: "/team" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "Blog & News", href: "/blog" },
+  { name: "F.A.Q.", href: "/faq" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export const SOCIAL_LINKS = [
   {
-    name: "Instagram",
+    label: "Instagram",
     href: "https://www.instagram.com",
     icon: RiInstagramLine,
   },
-  { name: "Facebook", href: "https://www.facebook.com", icon: RiFacebookFill },
-  { name: "TwitterX", href: "https://x.com", icon: RiTwitterXFill },
+  { label: "Facebook", href: "https://www.facebook.com", icon: RiFacebookFill },
+  { label: "TwitterX", href: "https://x.com", icon: RiTwitterXFill },
   {
-    name: "LinkedIn",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/company",
     icon: RiLinkedinFill,
   },

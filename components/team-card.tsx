@@ -9,8 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-import { Employee } from "@/lib/types";
+import { Employee } from "@/components/employee-card";
 
 export const TeamCard = ({ item }: { item: Employee }) => {
   const { name, position, country, image, email, phone, socials, slug } = item;
@@ -49,7 +48,7 @@ export const TeamCard = ({ item }: { item: Employee }) => {
         </CardContent>
         <CardFooter className="justify-center flex flex-col gap-y-2">
           <Link
-            href={`tel:+15555555555`}
+            href={`tel:+18004568551`}
             className="text-secondary hover:text-primary"
           >
             {phone}

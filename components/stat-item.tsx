@@ -17,9 +17,7 @@ export const StatItem = ({
         duration={6}
         className="h1 text-accent"
       />
-      <p className="mt-5 font-secondary text-secondary text-xl capitalize">
-        {text}
-      </p>
+      <p className="mt-5 font-secondary capitalize">{text}</p>
     </div>
   );
 };

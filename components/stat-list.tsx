@@ -4,7 +4,7 @@ import { STAT_LIST } from "@/lib/constants";
 
 export const StatList = () => {
   return (
-    <section className="bg-accent-secondary px-16 py-[150px]">
+    <section className="bg-accent-secondary py-5 md:py-10 lg:py-20">
       <ul className="container grid grid-cols-2 lg:grid-cols-4">
         {STAT_LIST.map(({ countNum, text }, index) => (
           <li

@@ -51,10 +51,10 @@ const Blog = async ({
         subtitle="Home / Blog"
         className="bg-blog"
       />
-      <div className="container py-20 space-y-20">
+      <div className="container py-5 md:py-10 lg:py-20 space-y-10">
         {articles.length > 0 && (
-          <div className="flex flex-col gap-12">
-            <h2 className="h2 capitalize mb-7">Latest post</h2>
+          <div className="flex flex-col gap-10">
+            <h2 className="h2 capitalize">Latest post</h2>
             <article className="flex">
               <div className="flex-1 relative aspect-square overflow-hidden rounded-3xl">
                 <Image
@@ -85,8 +85,8 @@ const Blog = async ({
             </article>
           </div>
         )}
-        <div className="flex flex-col gap-12">
-          <h2 className="h2 capitalize mb-7">Articles & News</h2>
+        <div className="flex flex-col gap-10">
+          <h2 className="h2 capitalize">Articles & News</h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-7">
             {articles.length > 0 ? (
               articles.slice(1, undefined).map((article: Article) => (

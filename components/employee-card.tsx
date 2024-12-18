@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 import {
@@ -8,9 +9,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { SocialItem, Socials } from "@/components/socials";
 
-import { Employee } from "@/lib/types";
-import Link from "next/link";
+export type Employee = {
+  name: string;
+  slug: string;
+  position: string;
+  country: string;
+  image: string;
+  phone: string;
+  email: string;
+  socials: SocialItem[];
+};
 
 export const EmployeeCard = ({ item }: { item: Employee }) => {
   const { name, position, country, image, socials, slug } = item;
@@ -36,15 +46,7 @@ export const EmployeeCard = ({ item }: { item: Employee }) => {
         </CardDescription>
       </CardHeader>
       <CardFooter className="justify-center">
-        <ul className="flex gap-x-4">
-          {socials.map(({ label, href, icon: Icon }) => (
-            <li key={label}>
-              <Link href={href}>
-                <Icon className="text-secondary hover:text-primary transition-colors duration-300" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Socials items={socials} />
       </CardFooter>
     </Card>
   );

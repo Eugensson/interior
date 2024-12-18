@@ -13,7 +13,7 @@
   h4,
   h5,
   h6 {
-    @apply font-primary text-primary;
+    @apply font-primary text-primary tracking-wide;
   }
 
   .h1 {
@@ -21,11 +21,11 @@
   }
 
   .h2 {
-    @apply text-5xl leading-tight;
+    @apply text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-tight;
   }
 
   .h3 {
-    @apply text-2xl;
+    @apply text-xl;
   }
 
   .h4 {

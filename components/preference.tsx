@@ -1,50 +1,52 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 
 export const Preference = () => {
   return (
-    <section className="container py-[200px]">
+    <section className="container py-5 md:py-10 lg:py-20">
       <h2 className="sr-only">Preference</h2>
-      <ul className="grid grid-cols-1 md:grid-cols-3 gap-14">
-        <li className="flex flex-col justify-center gap-y-5">
+      <ul className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <li className="space-y-2 p-2">
           <h3 className="h3 text-center">Project Plan</h3>
-          <p className="text-2xl text-center">
+          <p className="text-center max-w-72 mx-auto">
             There are many variations of the passages of lorem Ipsum from
             available, majority.
           </p>
-          <Button variant="link" asChild>
-            <Link href="/services">
-              Read More
-              <ArrowRight size={24} className="text-accent" />
-            </Link>
-          </Button>
+          <Link
+            href="/services"
+            className="flex justify-center items-center gap-x-2 hover:text-accent transition-colors duration-300"
+          >
+            Read More
+            <ArrowRight size={16} className="text-accent" />
+          </Link>
         </li>
-        <li className="flex flex-col justify-center gap-y-5">
+        <li className="space-y-2 p-2">
           <h3 className="h3 text-center">Interior Work</h3>
-          <p className="text-2xl text-center">
+          <p className="text-center max-w-72 mx-auto">
             There are many variations of the passages of lorem Ipsum from
             available, majority.
-          </p>{" "}
-          <Button variant="link" asChild>
-            <Link href="/services">
-              Read More
-              <ArrowRight size={24} className="text-accent" />
-            </Link>
-          </Button>
+          </p>
+          <Link
+            href="/services"
+            className="flex justify-center items-center gap-x-2 hover:text-accent transition-colors duration-300"
+          >
+            Read More
+            <ArrowRight size={16} className="text-accent" />
+          </Link>
         </li>
-        <li className="flex flex-col justify-center gap-y-5">
+        <li className="space-y-2 p-2">
           <h3 className="h3 text-center">Realization</h3>
-          <p className="text-2xl text-center">
+          <p className="text-center max-w-72 mx-auto">
             There are many variations of the passages of lorem Ipsum from
             available, majority.
-          </p>{" "}
-          <Button variant="link" asChild>
-            <Link href="/services">
-              Read More
-              <ArrowRight size={24} className="text-accent" />
-            </Link>
-          </Button>
+          </p>
+          <Link
+            href="/services"
+            className="flex justify-center items-center gap-x-2 hover:text-accent transition-colors duration-300"
+          >
+            Read More
+            <ArrowRight size={16} className="text-accent" />
+          </Link>
         </li>
       </ul>
     </section>

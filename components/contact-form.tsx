@@ -25,9 +25,9 @@ export const ContactForm = ({
         <Input placeholder="Phone" />
       </div>
       <Textarea placeholder="Hello Iam Intrested in..." />
-      <Button size="lg" className={cn("w-fit", btnStyles)}>
+      <Button className={cn("w-fit p-6", btnStyles)}>
         Send Now
-        <ArrowRight size={24} className="text-accent ml-4" />
+        <ArrowRight className="text-accent" />
       </Button>
     </form>
   );
