@@ -53,7 +53,7 @@ const ArticlesDetails = async ({
           <h2 className="h2 max-w-[500px] mb-5">{article.title}</h2>
           <div className="relative w-full h-[450px] rounded-3xl overflow-hidden mb-12">
             <Image
-              src={article.thumbnail}
+              src={article.image}
               alt={article.title}
               width={600}
               height={600}
@@ -62,9 +62,9 @@ const ArticlesDetails = async ({
           </div>
           <div className="flex justify-between mb-12">
             <p className="text-lg">{formatDate(article.createdAt)}</p>
-            <p className="capitalize text-lg">Autor: {article.autor}</p>
+            <p className="capitalize text-lg">Autor: {article.author}</p>
           </div>
-          <p className="mb-12">{article.descriptions}</p>
+          <p className="mb-12">{article.description}</p>
           <div className="w-full h-fit py-14 rounded-3xl overflow-hidden bg-accent-secondary">
             <RiDoubleQuotesL
               size={100}

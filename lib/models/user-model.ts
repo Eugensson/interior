@@ -5,7 +5,7 @@ export type User = {
   name: string;
   email: string;
   password: string;
-  role: "user" | "admin";
+  isAdmin: boolean;
 };
 
 const UserSchema = new Schema<User>(
@@ -25,10 +25,10 @@ const UserSchema = new Schema<User>(
       required: true,
       minlength: [6, "Password must be at least 6 characters"],
     },
-    role: {
-      type: String,
-      enum: ["user", "admin"],
-      default: "user",
+    isAdmin: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   { timestamps: true, versionKey: false }

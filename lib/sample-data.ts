@@ -6,7 +6,7 @@ const sampleData = {
       email: "admin@admin.com",
       name: "admin",
       password: bcrypt.hashSync("123456"),
-      role: "admin",
+      isAdmin: true,
     },
   ],
   projects: [
@@ -191,80 +191,73 @@ const sampleData = {
     {
       title: "Let’s Get Solution For Building Construction Work",
       slug: "let-s-get-solution-for-building-construction-work",
-      descriptions:
+      description:
         "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
       category: "interior",
-      thumbnail: "/images/articles/interior_design.jpg",
-      images: ["/images/articles/interior_design.jpg"],
+      image: "/images/articles/interior_design.jpg",
       tags: ["interior", "design", "modern", "kitchen"],
-      autor: "James Brown",
+      author: "James Brown",
     },
     {
       title: "Interior Design Trends 2025: What's in Style?",
       slug: "interior-design-trends-2025-whats-in-style",
-      descriptions:
+      description:
         "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
       category: "interior",
-      thumbnail: "/images/articles/trends-2025.jpg",
-      images: ["/images/articles/trends-2025.jpg"],
+      image: "/images/articles/trends-2025.jpg",
       tags: ["interior", "design", "trends"],
-      autor: "Natalie Martinez",
+      author: "Natalie Martinez",
     },
     {
       title: "How to Create a Cozy Home: Tips from Professionals",
       slug: "how-to-create-a-cozy-home-tips-from-professionals",
-      descriptions:
+      description:
         "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
       category: "decoration",
-      thumbnail: "/images/articles/cozy_home.jpg",
-      images: ["/images/articles/cozy_home.jpg"],
+      image: "/images/articles/cozy_home.jpg",
       tags: ["interior", "design", "home"],
-      autor: "Alan Webber",
+      author: "Alan Webber",
     },
     {
       title: "The Perfect Color for Every Room: Psychology and Style",
       slug: "the-perfect-color-for-every-room-psychology-and-style",
-      descriptions:
+      description:
         "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
       category: "interior",
-      thumbnail: "/images/articles/perfect-color.jpg",
-      images: ["/images/articles/perfect-color.jpg"],
+      image: "/images/articles/perfect-color.jpg",
       tags: ["style", "color", "design", "home"],
-      autor: "Patricia Glasper",
+      author: "Patricia Glasper",
     },
     {
       title: "Small Spaces, Big Ideas: Hacks for Compact Apartments",
       slug: "small-spaces-big-ideas-hacks-for-compact-apartments",
-      descriptions:
+      description:
         "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
       category: "design",
-      thumbnail: "/images/articles/small_spaces.jpg",
-      images: ["/images/articles/small_spaces.jpg"],
+      image: "/images/articles/small_spaces.jpg",
       tags: ["spaces", "compact", "apartments", "home"],
-      autor: "Bobby Fetcher",
+      author: "Bobby Fetcher",
     },
     {
       title:
         "Lighting in Interior Design: How to Choose and Highlight Accents?",
       slug: "lighting-in-interior-design-how-to-choose-and-highlight-accents",
-      descriptions:
+      description:
         "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
       category: "interior",
-      thumbnail: "/images/articles/lighting_in_interior.jpg",
-      images: ["/images/articles/lighting_in_interior.jpg"],
+      image: "/images/articles/lighting_in_interior.jpg",
       tags: ["design", "interior", "highlight", "accents"],
-      autor: "Jacqueline Jackson",
+      author: "Jacqueline Jackson",
     },
     {
       title: "Eco-Design: How to Make Your Interior Sustainable and Modern",
       slug: "eco-design-how-to-make-your-interior-sustainable-and-modern",
-      descriptions:
+      description:
         "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable. Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
       category: "design",
-      thumbnail: "/images/articles/eco_design.jpg",
-      images: ["/images/articles/eco_design.jpg"],
+      image: "/images/articles/eco_design.jpg",
       tags: ["eco-design", "interior", "modern", "sustainable"],
-      autor: "Mark Fitz",
+      author: "Mark Fitz",
     },
   ],
 };

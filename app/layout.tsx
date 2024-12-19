@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
 import { DM_Serif_Display, Jost } from "next/font/google";
 
+import { Toaster } from "@/components/ui/toaster";
+
 import { auth } from "@/auth";
 
 import "./globals.css";
@@ -36,6 +38,7 @@ export default async function RootLayout({
         className={`${dm_serif_display.variable} ${jost.variable} antialiased`}
       >
         <SessionProvider session={session}>{children}</SessionProvider>
+        <Toaster />
       </body>
     </html>
   );

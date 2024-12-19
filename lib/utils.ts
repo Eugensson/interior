@@ -28,3 +28,11 @@ export const formatDate = (date: Date) => {
 export const formatProjectDate = (date: Date) => {
   return format(date, "MMM yyyy");
 };
+
+export const fetcher = async (url: string) => {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Error fetching data: ${res.statusText}`);
+  }
+  return res.json();
+};

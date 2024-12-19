@@ -5,12 +5,11 @@ export type Article = {
   _id: Types.ObjectId;
   title: string;
   slug: string;
-  descriptions: string;
+  description: string;
   tags: string[];
   category: string;
-  thumbnail: string;
-  images: string[];
-  autor: string;
+  image: string;
+  author: string;
   createdAt: Date;
   updatedAt: Date;
 };
@@ -27,32 +26,18 @@ const articleSchema = new Schema<Article>(
         message: "Slug can only contain lowercase letters, numbers, and dashes",
       },
     },
-    descriptions: {
+    description: {
       type: String,
       required: true,
       validate: {
         validator: (v: string) => v.length <= 3000,
-        message: "Descriptions cannot exceed 3000 characters",
+        message: "Description cannot exceed 3000 characters",
       },
     },
     tags: { type: [String], required: true },
     category: { type: String, required: true },
-    thumbnail: { type: String, required: true },
-    images: {
-      type: [String],
-      required: true,
-      // validate: {
-      //   validator: (v: string[]) =>
-      //     v.length > 0 &&
-      //     v.length <= 5 &&
-      //     v.every((img) =>
-      //       /^https?:\/\/.+\.(jpg|jpeg|png|webp|svg)$/.test(img)
-      //     ),
-      //   message:
-      //     "Images must include 1-5 valid URLs with extensions: jpg, jpeg, png, webp, or svg",
-      // },
-    },
-    autor: { type: String, required: true },
+    image: { type: String, required: true },
+    author: { type: String, required: true },
   },
   { timestamps: true, versionKey: false }
 );

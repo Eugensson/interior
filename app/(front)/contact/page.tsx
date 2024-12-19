@@ -16,7 +16,7 @@ const Contact = () => {
         subtitle="Home / Contact"
         className="bg-contact"
       />
-      <div className="container py-20">
+      <div className="container py-5 md:py-10 lg:py-20">
         <h2 className="h2 text-center mb-20">
           We love meeting new people
           <br /> and helping them

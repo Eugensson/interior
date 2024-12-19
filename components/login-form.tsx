@@ -1,10 +1,17 @@
 "use client";
 
-import { useEffect } from "react";
-import { ArrowRight, TriangleAlert } from "lucide-react";
+import { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
+import {
+  ArrowRight,
+  AtSign,
+  Eye,
+  EyeOff,
+  KeyRound,
+  TriangleAlert,
+} from "lucide-react";
 
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -21,6 +28,7 @@ export const LoginForm = () => {
   const router = useRouter();
   const params = useSearchParams();
   const { data: session } = useSession();
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const callbackUrl = params.get("callbackUrl") || DEFAULT_LOGIN_REDIRECT;
 
   const {
@@ -35,7 +43,7 @@ export const LoginForm = () => {
   });
 
   useEffect(() => {
-    if (session && session.user) {
+    if (session && session.user.isAdmin) {
       router.push(callbackUrl);
     }
   }, [callbackUrl, params, router, session]);
@@ -51,60 +59,70 @@ export const LoginForm = () => {
   return (
     <form
       onSubmit={handleSubmit(formSubmit)}
-      className="rounded-2xl bg-accent-secondary w-fit p-10 flex flex-col gap-5 justify-center"
+      className="rounded-2xl bg-accent-secondary w-full max-w-md p-10 flex flex-col gap-10 justify-center"
     >
-      <h2 className="h2 text-center">Password Protected</h2>
-      <p className="text-lg text-center max-w-2xl">
-        This page is password protected. If you are the website admin, or have
-        access to this page, please type your email and password below.
-      </p>
-      {errors.email?.message ? (
-        <p className="w-fit py-2 px-4 rounded-md mx-auto flex justify-center items-center gap-4 text-lg text-red-500 bg-red-500/15">
-          <TriangleAlert />
-          {errors.email.message}
-        </p>
-      ) : errors.password?.message ? (
-        <p className="w-fit py-2 px-4 rounded-md mx-auto flex justify-center items-center gap-4 text-lg text-red-500 bg-red-500/15">
-          <TriangleAlert />
-          {errors.password.message}
-        </p>
-      ) : null}
       <Label htmlFor="email" className="sr-only">
         Email
       </Label>
-      <Input
-        id="email"
-        placeholder="Enter your email"
-        type="email"
-        className="bg-inherit max-w-lg mx-auto"
-        {...register("email", {
-          required: "Email is required",
-          pattern: {
-            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-            message: "Email is invalid",
-          },
-        })}
-      />
+      <div className="relative">
+        <Input
+          id="email"
+          placeholder="Enter your email"
+          type="email"
+          className="bg-inherit max-w-lg mx-auto px-8 placeholder:text-secondary/50"
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+              message: "Email is invalid",
+            },
+          })}
+        />
+        {errors.email?.message ? (
+          <TriangleAlert className="absolute top-1/2 -translate-y-1/2 left-0 text-red-500/50" />
+        ) : (
+          <AtSign className="absolute top-1/2 -translate-y-1/2 left-0 text-secondary/50" />
+        )}
+      </div>
+
       <Label htmlFor="password" className="sr-only">
         Password
       </Label>
-      <Input
-        id="password"
-        placeholder="Enter your password"
-        type="password"
-        className="bg-inherit max-w-lg mx-auto"
-        {...register("password", {
-          required: "Password is required",
-        })}
-      />
+      <div className="relative">
+        <Input
+          id="password"
+          placeholder="Enter your password"
+          type={isVisiblePassword ? "text" : "password"}
+          className="bg-inherit max-w-lg mx-auto px-8 placeholder:text-secondary/50"
+          {...register("password", {
+            required: "Password is required",
+          })}
+        />
+        {errors.password?.message ? (
+          <TriangleAlert className="absolute top-1/2 -translate-y-1/2 left-0 text-red-500/50" />
+        ) : (
+          <KeyRound className="absolute top-1/2 -translate-y-1/2 left-0 text-secondary/50" />
+        )}
+        {isVisiblePassword ? (
+          <EyeOff
+            onClick={() => setIsVisiblePassword((prevState) => !prevState)}
+            className="absolute top-1/2 -translate-y-1/2 right-0 text-secondary/50"
+          />
+        ) : (
+          <Eye
+            onClick={() => setIsVisiblePassword((prevState) => !prevState)}
+            className="absolute top-1/2 -translate-y-1/2 right-0 text-secondary/50"
+          />
+        )}
+      </div>
+
       <Button
         type="submit"
         disabled={isSubmitting}
-        size="lg"
-        className="w-fit mx-auto text-lg"
+        className="w-fit mx-auto text-lg p-6"
       >
         Login
-        <ArrowRight size={24} className="text-accent" />
+        <ArrowRight className="text-accent" />
       </Button>
     </form>
   );

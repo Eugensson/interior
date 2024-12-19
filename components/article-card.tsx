@@ -18,7 +18,7 @@ export const ArticleCard = ({ article }: { article: Article }) => {
     <Card className="p-6 rounded-3xl group hover:bg-accent-secondary focus:bg-accent-secondary">
       <CardContent className="p-0 overflow-hidden rounded-t-3xl mb-5">
         <Image
-          src={article.thumbnail}
+          src={article.image}
           alt={article.title}
           width={400}
           height={400}

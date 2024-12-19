@@ -62,7 +62,12 @@ const Pricing = () => {
               </ul>
             </CardContent>
             <CardFooter className="px-5">
-              <Button size="lg" variant="accent" className="w-full" asChild>
+              <Button
+                size="lg"
+                variant="accent"
+                className="mx-auto w-2/3"
+                asChild
+              >
                 <Link href="/" className="capitalize text-white">
                   Get started
                   <ArrowRight size={24} className="text-primary" />
@@ -115,7 +120,7 @@ const Pricing = () => {
               </ul>
             </CardContent>
             <CardFooter className="px-5">
-              <Button size="lg" className="w-full" asChild>
+              <Button size="lg" className="mx-auto w-2/3" asChild>
                 <Link href="/" className="capitalize text-white">
                   Get started
                   <ArrowRight size={24} className="text-accent ml-4" />
@@ -163,7 +168,12 @@ const Pricing = () => {
               </ul>
             </CardContent>
             <CardFooter className="px-5">
-              <Button size="lg" variant="accent" className="w-full" asChild>
+              <Button
+                size="lg"
+                variant="accent"
+                className="mx-auto w-2/3"
+                asChild
+              >
                 <Link href="/" className="capitalize text-white">
                   Get started
                   <ArrowRight size={24} className="text-primary" />

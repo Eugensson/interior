@@ -3,20 +3,27 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { cn } from "@/lib/utils";
-import { NAV_HEADER_LINKS } from "@/lib/constants";
+export type NavItem = {
+  name: string;
+  href: string;
+};
 
-export const Nav = () => {
+interface NavProps {
+  items: NavItem[];
+  containerStyle?: string;
+}
+
+export const Nav = ({ items, containerStyle }: NavProps) => {
   const pathname = usePathname();
 
   return (
-    <nav className="hidden md:block">
+    <nav className={containerStyle}>
       <ul className="flex items-center md:gap-x-4 lg:gap-x-8 font-secondary">
-        {NAV_HEADER_LINKS.map(({ name, href }) => (
+        {items.map(({ name, href }) => (
           <li key={name}>
             <Link
               href={href}
-              className={cn("", pathname === href && "text-accent underline")}
+              className={`${pathname === href && "text-accent font-normal"}`}
             >
               {name}
             </Link>

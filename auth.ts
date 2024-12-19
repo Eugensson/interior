@@ -39,7 +39,7 @@ export const config = {
           _id: user._id,
           email: user.email,
           name: user.name,
-          role: user.role,
+          isAdmin: user.isAdmin,
         };
       }
       if (trigger === "update" && session) {

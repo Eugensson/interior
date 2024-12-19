@@ -5,7 +5,7 @@ import {
   RiInstagramLine,
 } from "react-icons/ri";
 
-export const NAV_HEADER_LINKS = [
+export const HEADER_NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
@@ -13,7 +13,7 @@ export const NAV_HEADER_LINKS = [
   { name: "Contact", href: "/contact" },
 ];
 
-export const NAV_FOOTER_LINKS = [
+export const FOOTER_NAV_LINKS = [
   { name: "About Us", href: "/about" },
   { name: "Our Team", href: "/team" },
   { name: "Our Services", href: "/services" },
@@ -24,7 +24,7 @@ export const NAV_FOOTER_LINKS = [
   { name: "Contact", href: "/contact" },
 ];
 
-export const NAV_MOBILE_LINKS = [
+export const MOBILE_NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
@@ -34,6 +34,13 @@ export const NAV_MOBILE_LINKS = [
   { name: "Blog & News", href: "/blog" },
   { name: "F.A.Q.", href: "/faq" },
   { name: "Contact", href: "/contact" },
+];
+
+export const ADMIN_NAV_LINKS = [
+  { name: "Overview", href: "/admin/overview" },
+  { name: "Projects", href: "/admin/projects" },
+  { name: "Articles", href: "/admin/articles" },
+  { name: "Settings", href: "/admin/settings" },
 ];
 
 export const SOCIAL_LINKS = [

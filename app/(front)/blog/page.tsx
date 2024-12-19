@@ -58,7 +58,7 @@ const Blog = async ({
             <article className="flex">
               <div className="flex-1 relative aspect-square overflow-hidden rounded-3xl">
                 <Image
-                  src={latestPost.thumbnail}
+                  src={latestPost.image}
                   alt="Interior Photo"
                   fill
                   quality={100}
@@ -68,7 +68,7 @@ const Blog = async ({
               <div className="flex-1 space-y-6 p-12">
                 <h3 className="h2 capitalize">{latestPost.title}</h3>
                 <p className="text-secondary text-lg line-clamp-6">
-                  {latestPost.descriptions}
+                  {latestPost.description}
                 </p>
                 <div className="flex justify-between items-center">
                   <p className="text-secondary text-base">

@@ -1,6 +1,10 @@
 "use client";
 
+import Link from "next/link";
+import { useState } from "react";
 import { RiMenu3Fill } from "react-icons/ri";
+import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 import {
   Sheet,
@@ -9,15 +13,19 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Logo } from "./logo";
-import { NAV_MOBILE_LINKS } from "@/lib/constants";
-import Link from "next/link";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { Logo } from "@/components/logo";
+import { NavItem } from "@/components/nav";
+import { LogoutBtn } from "@/components/logout-btn";
+
 import { cn } from "@/lib/utils";
 
-export const MobileMenu = () => {
+interface MobileMenuProps {
+  items: NavItem[];
+}
+
+export const MobileMenu = ({ items }: MobileMenuProps) => {
   const pathname = usePathname();
+  const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -32,12 +40,12 @@ export const MobileMenu = () => {
           </SheetTitle>
         </SheetHeader>
         <ul className="flex flex-col items-center gap-4 my-10">
-          {NAV_MOBILE_LINKS.map(({ name, href }) => (
+          {items.map(({ name, href }) => (
             <li key={name} onClick={() => setIsOpen(false)}>
               <Link
                 href={href}
                 className={cn(
-                  "text-3xl tracking-wide font-primary uppercase",
+                  "text-xl tracking-wide font-primary uppercase",
                   pathname === href && "text-accent"
                 )}
               >
@@ -45,6 +53,23 @@ export const MobileMenu = () => {
               </Link>
             </li>
           ))}
+          {!session?.user.isAdmin ? (
+            <li key="login" onClick={() => setIsOpen(false)}>
+              <Link
+                href="/login"
+                className={cn(
+                  "text-xl tracking-wide font-primary uppercase",
+                  pathname === "/login" && "text-accent"
+                )}
+              >
+                Login
+              </Link>
+            </li>
+          ) : (
+            <li key="logout" onClick={() => setIsOpen(false)}>
+              <LogoutBtn isMobile />
+            </li>
+          )}
         </ul>
       </SheetContent>
     </Sheet>

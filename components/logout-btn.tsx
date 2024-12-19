@@ -1,18 +1,26 @@
 "use client";
 
-import { LogOut } from "lucide-react";
 import { signOut } from "next-auth/react";
 
 import { Button } from "@/components/ui/button";
 
-export const LogoutBtn = () => {
+import { cn } from "@/lib/utils";
+
+export const LogoutBtn = ({ isMobile }: { isMobile?: boolean }) => {
   const logoutHandler = () => {
     signOut({ callbackUrl: "/login" });
   };
 
   return (
-    <Button onClick={logoutHandler}>
-      <LogOut className="mr-2" />
+    <Button
+      variant={isMobile ? "link" : "default"}
+      onClick={logoutHandler}
+      className={cn(
+        "p-4",
+        isMobile &&
+          "text-xl tracking-wide text-secondary font-primary uppercase"
+      )}
+    >
       Logout
     </Button>
   );

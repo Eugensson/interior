@@ -33,6 +33,13 @@ export const getCategories = cache(async (): Promise<string[]> => {
   return categories;
 });
 
+export const getAuthors = cache(async (): Promise<string[]> => {
+  await dbConnect();
+
+  const authors = await ArticleModel.distinct("author");
+  return authors;
+});
+
 export const getLatestArticles = cache(async (): Promise<Article[]> => {
   await dbConnect();
 
@@ -93,6 +100,7 @@ export const getByQuery = cache(
         .skip(skip)
         .limit(PAGE_SIZE)
         .lean<Article[]>()
+        .sort({ createdAt: -1 })
         .select("-__v"),
       ArticleModel.countDocuments(filters),
     ]);

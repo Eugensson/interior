@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const Hero = () => {
   return (
@@ -14,9 +15,11 @@ export const Hero = () => {
           There are many variations of the passages of lorem Ipsum
           fromavailable,variations of the passages.
         </p>
-        <Button size="lg" className="w-fit">
-          Get Started
-          <ArrowRight size={24} className="text-accent" />
+        <Button className="w-fit p-6" asChild>
+          <Link href="/services" className="flex items-center gap-2">
+            Get Started
+            <ArrowRight className="text-accent" />
+          </Link>
         </Button>
       </div>
     </section>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { NAV_FOOTER_LINKS } from "@/lib/constants";
+import { FOOTER_NAV_LINKS } from "@/lib/constants";
 
 export const FooterNav = () => {
   const pathname = usePathname();
@@ -12,7 +12,7 @@ export const FooterNav = () => {
   return (
     <nav className="hidden md:block">
       <ul className="flex flex-col gap-y-2">
-        {NAV_FOOTER_LINKS.map(({ name, href }) => (
+        {FOOTER_NAV_LINKS.map(({ name, href }) => (
           <li key={name}>
             <Link
               href={href}

@@ -4,12 +4,12 @@ declare module "next-auth" {
   interface Session {
     user: {
       _id?: string | null;
-      role?: "admin" | "user";
+      isAdmin?: boolean;
     } & DefaultSession["user"];
   }
 
   export interface User extends DefaultUser {
     _id?: string;
-    role?: "admin" | "user";
+    isAdmin?: boolean;
   }
 }
