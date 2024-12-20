@@ -1,9 +1,8 @@
-import slugify from "slugify";
 import cloudinary from "cloudinary";
 
 import { auth } from "@/auth";
 import { dbConnect } from "@/lib/db-connect";
-import { ArticleModel } from "@/lib/models/article-model";
+import { ProjectModel } from "@/lib/models/project-model";
 
 cloudinary.v2.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME!,
@@ -19,14 +18,14 @@ export const GET = auth(async (...args: any) => {
   if (!req.auth || !req.auth.user?.isAdmin) {
     return Response.json({ message: "Unauthorized" }, { status: 401 });
   }
-
   await dbConnect();
 
-  const article = await ArticleModel.findById(id);
-  if (!article) {
-    return Response.json({ message: "Article not found" }, { status: 404 });
+  const project = await ProjectModel.findById(id);
+
+  if (!project) {
+    return Response.json({ message: "Project not found" }, { status: 404 });
   }
-  return Response.json(article);
+  return Response.json(project);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }) as any;
 
@@ -39,28 +38,28 @@ export const PUT = auth(async (...args: any) => {
     return Response.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  const { title, description, tags, category, image, author } =
+  const { title, description, tags, category, images, designer } =
     await req.json();
 
   try {
     await dbConnect();
 
-    const article = await ArticleModel.findById(id);
+    const project = await ProjectModel.findById(id);
 
-    if (article) {
-      article.title = title;
-      article.slug = slugify(title, { lower: true });
-      article.author = author;
-      article.category = category;
-      article.tags = [...tags.split(",")];
-      article.description = description;
-      article.image = image;
+    if (project) {
+      project.title = title;
+      project.description = description;
+      project.tags = [...tags.split(",")];
+      project.category = category;
+      project.images = images;
+      project.thumbnail = images[0];
+      project.designer = designer;
 
-      const updatedArticle = await article.save();
+      const updatedProject = await project.save();
 
-      return Response.json(updatedArticle);
+      return Response.json(updatedProject);
     } else {
-      return Response.json({ message: "Article not found" }, { status: 404 });
+      return Response.json({ message: "Project not found" }, { status: 404 });
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
@@ -81,35 +80,37 @@ export const DELETE = auth(async (...args: any) => {
   try {
     await dbConnect();
 
-    const article = await ArticleModel.findById(id);
+    const project = await ProjectModel.findById(id);
 
-    if (!article) {
-      return Response.json({ message: "Article not found" }, { status: 404 });
+    if (project) {
+      const imageDeletionPromises = project.images.map((image: string) => {
+        const urlParts = image.split("/");
+        const fileNameWithExtension = urlParts.pop();
+
+        if (!fileNameWithExtension) {
+          throw new Error("Couldn't find fileNameWithExtension with URL");
+        }
+
+        const [publicId] = fileNameWithExtension.split(".");
+        if (!publicId) {
+          throw new Error(
+            "It was not possible to select publicId from fileNameWithExtension"
+          );
+        }
+
+        return cloudinary.v2.uploader.destroy(publicId);
+      });
+
+      await Promise.all(imageDeletionPromises);
+
+      await project.deleteOne();
+
+      return Response.json({
+        message: "Project and images deleted",
+      });
+    } else {
+      return Response.json({ message: "Project not found" }, { status: 404 });
     }
-
-    if (article.image) {
-      const urlParts = article.image.split("/");
-      const fileNameWithExtension = urlParts.pop();
-
-      if (!fileNameWithExtension) {
-        throw new Error("Couldn't find fileNameWithExtension with URL");
-      }
-
-      const [publicId] = fileNameWithExtension.split(".");
-      if (!publicId) {
-        throw new Error(
-          "It was not possible to select publicId from fileNameWithExtension"
-        );
-      }
-
-      await cloudinary.v2.uploader.destroy(publicId);
-    }
-
-    await article.deleteOne();
-
-    return Response.json({
-      message: "Article and image deleted successfully",
-    });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     return Response.json({ message: err.message }, { status: 500 });

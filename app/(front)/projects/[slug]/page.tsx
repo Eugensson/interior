@@ -62,18 +62,15 @@ const ProjectDetails = async ({
               {formatProjectDate(project.createdAt)}
             </li>
             <li className="flex justify-between items-end capitalize text-lg">
-              <h4 className="h4">Designers</h4>
+              <h4 className="h4">Designer</h4>
               <span className="max-w-40 flex text-right flex-wrap">
-                {project.designers
-                  .slice(0, -1)
-                  .map((designer) => designer + ", ")}
-                {project.designers.slice(-1)}
+                {project.designer}
               </span>
             </li>
           </ul>
           <div className="flex-1 flex flex-col gap-y-10">
             <h2 className="h2 capitalize">{project.title}</h2>
-            <p className="text-secondary">{project.descriptions}</p>
+            <p className="text-secondary">{project.description}</p>
           </div>
         </div>
         <GalleryImages images={project.images} />

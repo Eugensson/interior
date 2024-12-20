@@ -5,12 +5,12 @@ export type Project = {
   _id: Types.ObjectId;
   title: string;
   slug: string;
-  descriptions: string;
+  description: string;
   tags: string[];
   category: string;
   thumbnail: string;
   images: string[];
-  designers: string[];
+  designer: string;
   createdAt: Date;
   updatedAt: Date;
 };
@@ -27,7 +27,7 @@ const projectSchema = new Schema<Project>(
         message: "Slug can only contain lowercase letters, numbers, and dashes",
       },
     },
-    descriptions: {
+    description: {
       type: String,
       required: true,
       validate: {
@@ -35,27 +35,26 @@ const projectSchema = new Schema<Project>(
         message: "Descriptions cannot exceed 3000 characters",
       },
     },
-    tags: { type: [String], required: true },
+    tags: { type: [String], required: true, default: [] },
     category: { type: String, required: true },
     thumbnail: { type: String, required: true },
     images: {
       type: [String],
       required: true,
-      // validate: {
-      //   validator: (v: string[]) =>
-      //     v.length > 0 &&
-      //     v.length <= 10 &&
-      //     v.every((img) =>
-      //       /^https?:\/\/.+\.(jpg|jpeg|png|webp|svg)$/.test(img)
-      //     ),
-      //   message:
-      //     "Images must include 1-10 valid URLs with extensions: jpg, jpeg, png, webp, or svg",
-      // },
+      validate: {
+        validator: (v: string[]) =>
+          v.length > 0 &&
+          v.length <= 10 &&
+          v.every((img) =>
+            /^(https?:\/\/.+\.(jpg|jpeg|png|webp|svg)|\/images\/[a-zA-Z0-9-_]+\.(jpg|jpeg|png|webp|svg))$/.test(
+              img
+            )
+          ),
+        message:
+          "Images must include 1-10 valid URLs or local paths with extensions: jpg, jpeg, png, webp, or svg",
+      },
     },
-    designers: {
-      type: [String],
-      required: true,
-    },
+    designer: { type: String, required: true },
   },
   { timestamps: true, versionKey: false }
 );
@@ -72,9 +71,5 @@ projectSchema.pre("save", async function (next) {
   }
   next();
 });
-
-// projectSchema.index({ slug: 1 });
-// projectSchema.index({ category: 1 });
-// projectSchema.index({ tags: 1 });
 
 export const ProjectModel = models.Project || model("Project", projectSchema);

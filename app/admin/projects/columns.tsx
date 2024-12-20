@@ -16,33 +16,33 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { useToast } from "@/hooks/use-toast";
+import { Badge } from "@/components/ui/badge";
 
-export type ArticleRow = {
+export type ProjectRow = {
   id: string;
-  title: string;
-  author: string;
-  description: string;
   image: string;
-  updateAt: string;
+  title: string;
+  designer: string;
+  category: string;
+  descriptions: string;
+  tags: string[];
 };
 
-const ArticleActions = ({ articleId }: { articleId: string }) => {
+const ProjectActions = ({ projectId }: { projectId: string }) => {
   const router = useRouter();
   const { toast } = useToast();
 
-  const { trigger: deleteArticle } = useSWRMutation(
-    "/api/admin/articles",
-    async (url, { arg }: { arg: { articleId: string } }) => {
+  const { trigger: deleteProject } = useSWRMutation(
+    `/api/admin/projects`,
+    async (url, { arg }: { arg: { projectId: string } }) => {
       try {
-        const res = await fetch(`${url}/${arg.articleId}`, {
+        const res = await fetch(`${url}/${arg.projectId}`, {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
         });
         const data = await res.json();
         if (res.ok) {
-          toast({
-            title: "Article deleted",
-          });
+          toast({ title: "Project deleted" });
           router.refresh();
         } else {
           toast({
@@ -62,19 +62,19 @@ const ArticleActions = ({ articleId }: { articleId: string }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="link">
+        <Button variant="ghost" className="h-8 w-8 p-0">
           <span className="sr-only">Open menu</span>
-          <MoreVertical />
+          <MoreVertical className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem>
-          <Button variant="link" asChild>
+          <Button variant="link" size="sm" asChild>
             <Link
-              href={`/admin/articles/${articleId}`}
-              className="flex items-center gap-2 opacity-75 hover:opacity-100 hover:no-underline transition-opacity duration-300"
+              href={`/admin/projects/${projectId}`}
+              className="flex items-center gap-2"
             >
-              <PencilIcon />
+              <PencilIcon className="size-4 text-emerald-500" />
               Edit
             </Link>
           </Button>
@@ -82,11 +82,12 @@ const ArticleActions = ({ articleId }: { articleId: string }) => {
         <DropdownMenuItem>
           <Button
             variant="link"
-            aria-label="Delete article"
-            onClick={() => deleteArticle({ articleId })}
-            className="opacity-75 hover:opacity-100 hover:no-underline transition-opacity duration-300"
+            aria-label="Кнопка видалення продукту"
+            size="sm"
+            className="flex items-center gap-2"
+            onClick={() => deleteProject({ projectId })}
           >
-            <TrashIcon />
+            <TrashIcon className="size-4 text-red-500" />
             Delete
           </Button>
         </DropdownMenuItem>
@@ -95,7 +96,7 @@ const ArticleActions = ({ articleId }: { articleId: string }) => {
   );
 };
 
-export const columns: ColumnDef<ArticleRow>[] = [
+export const columns: ColumnDef<ProjectRow>[] = [
   {
     accessorKey: "image",
     header: () => <p className="sr-only">Image</p>,
@@ -103,33 +104,16 @@ export const columns: ColumnDef<ArticleRow>[] = [
       const imageUrl =
         (row.getValue("image") as string) ?? "/images/placeholder.png";
       return (
-        <Image
-          src={imageUrl}
-          alt={`Image of ${row.original.image}`}
-          width={100}
-          height={100}
-          className="aspect-square object-cover"
-        />
+        <div className="flex justify-center items-center">
+          <Image
+            src={imageUrl}
+            alt={`Image of ${row.original.title}`}
+            width={100}
+            height={100}
+            className="aspect-square object-cover"
+          />
+        </div>
       );
-    },
-  },
-  {
-    accessorKey: "author",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="link"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="opacity-80 hover:no-underline"
-        >
-          Author
-          <ArrowUpAZ className="size-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const author = row.getValue("author") as string;
-      return <p className="line-clamp-2 ml-4 capitalize">{author}</p>;
     },
   },
   {
@@ -142,13 +126,52 @@ export const columns: ColumnDef<ArticleRow>[] = [
           className="opacity-80 hover:no-underline"
         >
           Title
-          <ArrowUpAZ className="size-4" />
+          <ArrowUpAZ className="ml-2 h-4 w-4" />
         </Button>
       );
     },
     cell: ({ row }) => {
       const title = row.getValue("title") as string;
-      return <p className="max-w-80 line-clamp-2 ml-4">{title}</p>;
+
+      return <p className="line-clamp-2 ml-4">{title}</p>;
+    },
+  },
+  {
+    accessorKey: "designer",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="link"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="opacity-80 hover:no-underline"
+        >
+          Designer
+          <ArrowUpAZ className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const designer = row.getValue("designer") as string;
+      return <p className="line-clamp-2 ml-4">{designer}</p>;
+    },
+  },
+  {
+    accessorKey: "category",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="link"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="opacity-80 hover:no-underline"
+        >
+          Category
+          <ArrowUpAZ className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const category = row.getValue("category") as number;
+      return <p className="ml-4 capitalize">{category}</p>;
     },
   },
   {
@@ -167,11 +190,11 @@ export const columns: ColumnDef<ArticleRow>[] = [
     },
     cell: ({ row }) => {
       const description = row.getValue("description") as string;
-      return <p className="max-w-80 line-clamp-4 ml-4">{description}</p>;
+      return <p className="max-w-96 line-clamp-4 ml-4">{description}</p>;
     },
   },
   {
-    accessorKey: "updateAt",
+    accessorKey: "tags",
     header: ({ column }) => {
       return (
         <Button
@@ -179,18 +202,28 @@ export const columns: ColumnDef<ArticleRow>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="opacity-80 hover:no-underline"
         >
-          UpdateAt
-          <ArrowUpAZ className="size-4" />
+          Tags
+          <ArrowUpAZ className="ml-2 h-4 w-4" />
         </Button>
       );
     },
     cell: ({ row }) => {
-      const updateAt = row.getValue("updateAt") as string;
-      return <p className="ml-4 truncate">{updateAt}</p>;
+      const tags = row.getValue("tags") as string[];
+      return (
+        <ul className="ml-1 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li key={tag}>
+              <Badge variant="outline" className="rounded-md capitalize">
+                {tag}
+              </Badge>
+            </li>
+          ))}
+        </ul>
+      );
     },
   },
   {
     id: "actions",
-    cell: ({ row }) => <ArticleActions articleId={row.original.id} />,
+    cell: ({ row }) => <ProjectActions projectId={row.original.id} />,
   },
 ];

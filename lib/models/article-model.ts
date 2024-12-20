@@ -55,8 +55,4 @@ articleSchema.pre("save", async function (next) {
   next();
 });
 
-// articleSchema.index({ slug: 1 });
-// articleSchema.index({ category: 1 });
-// articleSchema.index({ tags: 1 });
-
 export const ArticleModel = models.Article || model("Article", articleSchema);

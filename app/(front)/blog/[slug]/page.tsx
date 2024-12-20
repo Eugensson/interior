@@ -62,7 +62,7 @@ const ArticlesDetails = async ({
           </div>
           <div className="flex justify-between mb-12">
             <p className="text-lg">{formatDate(article.createdAt)}</p>
-            <p className="capitalize text-lg">Autor: {article.author}</p>
+            <p className="capitalize text-lg">Author: {article.author}</p>
           </div>
           <p className="mb-12">{article.description}</p>
           <div className="w-full h-fit py-14 rounded-3xl overflow-hidden bg-accent-secondary">

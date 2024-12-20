@@ -1,16 +1,15 @@
 import { auth } from "@/auth";
 import { dbConnect } from "@/lib/db-connect";
-import { ArticleModel } from "@/lib/models/article-model";
+import { ProjectModel } from "@/lib/models/project-model";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const GET = auth(async (req: any) => {
-  if (!req.auth || !req.auth.user.isAdmin) {
+  if (!req.auth || !req.auth.user?.isAdmin) {
     return Response.json({ message: "Unauthorized" }, { status: 401 });
   }
-
   await dbConnect();
-  const articles = await ArticleModel.find();
-  return Response.json(articles);
+  const products = await ProjectModel.find();
+  return Response.json(products);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }) as any;
 
@@ -19,24 +18,24 @@ export const POST = auth(async (req: any) => {
   if (!req.auth || !req.auth.user?.isAdmin) {
     return Response.json({ message: "Unauthorized" }, { status: 401 });
   }
-
   await dbConnect();
 
-  const article = new ArticleModel({
+  const project = new ProjectModel({
     title: "sample-title",
     slug: "sample-slug",
     description: "sample-description",
     tags: ["sample-tag"],
     category: "sample-category",
-    image: "/images/placeholder.png",
-    author: "sample-author",
+    thumbnail: "/images/placeholder.png",
+    images: ["/images/placeholder.png"],
+    designer: "sample-designer",
   });
 
   try {
-    await article.save();
+    await project.save();
 
     return Response.json(
-      { message: "Article created successfully", article },
+      { message: "Project created", project },
       { status: 201 }
     );
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

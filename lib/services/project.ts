@@ -69,3 +69,17 @@ export const getBySlug = cache(async (slug: string): Promise<Project> => {
 
   return project;
 });
+
+export const getAllCategories = cache(async (): Promise<Category[]> => {
+  await dbConnect();
+
+  const categories = await ProjectModel.distinct("category");
+  return categories;
+});
+
+export const getAllDesigners = cache(async (): Promise<string[]> => {
+  await dbConnect();
+
+  const designers = await ProjectModel.distinct("designer");
+  return designers;
+});

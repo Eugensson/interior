@@ -1,4 +1,5 @@
 import { cache } from "react";
+
 import { dbConnect } from "@/lib/db-connect";
 import { Article, ArticleModel } from "@/lib/models/article-model";
 
@@ -36,7 +37,7 @@ export const getCategories = cache(async (): Promise<string[]> => {
 export const getAuthors = cache(async (): Promise<string[]> => {
   await dbConnect();
 
-  const authors = await ArticleModel.distinct("author");
+  const authors = (await ArticleModel.distinct("author")) as string[];
   return authors;
 });
 

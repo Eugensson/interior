@@ -35,8 +35,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-import { fetcher, formatDate } from "@/lib/utils";
-import { Article } from "@/lib/models/article-model";
+import { fetcher } from "@/lib/utils";
+import { Project } from "@/lib/models/project-model";
 
 import { useToast } from "@/hooks/use-toast";
 
@@ -52,10 +52,11 @@ export function DataTable<TData, TValue>({
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
-  const { data: rawData, error } = useSWR(`/api/admin/articles`, fetcher);
 
-  const { trigger: createArticle, isMutating: isCreating } = useSWRMutation(
-    `/api/admin/articles`,
+  const { data: rawData, error } = useSWR(`/api/admin/projects`, fetcher);
+
+  const { trigger: createProject, isMutating: isCreating } = useSWRMutation(
+    `/api/admin/projects`,
     async (url) => {
       const res = await fetch(url, {
         method: "POST",
@@ -74,31 +75,32 @@ export function DataTable<TData, TValue>({
       }
 
       toast({
-        title: "Article created",
+        title: "Project created",
       });
 
-      if (!data.article || !data.article._id) {
+      if (!data.project || !data.project._id) {
         toast({
-          title: "Something went wrong. Please try again.",
+          title: "Don`t create project",
           variant: "destructive",
         });
         return;
       }
 
-      router.push(`/admin/articles/${data.article._id}`);
+      router.push(`/admin/projects/${data.project._id}`);
     }
   );
 
   const data = useMemo(() => {
     return (
-      rawData?.map((article: Article) => ({
-        id: article._id,
-        title: article.title,
-        author: article.author,
-        description: article.description,
-        image: article.image,
-        updateAt: formatDate(article.updatedAt),
-        action: "Update article",
+      rawData?.map((project: Project) => ({
+        id: project._id,
+        image: project.thumbnail,
+        title: project.title,
+        designer: project.designer,
+        category: project.category,
+        description: project.description,
+        tags: project.tags,
+        action: "Edit project",
       })) || []
     );
   }, [rawData]);
@@ -126,7 +128,7 @@ export function DataTable<TData, TValue>({
             <Button
               type="button"
               disabled={isCreating}
-              onClick={() => createArticle()}
+              onClick={() => createProject()}
             >
               {isCreating ? (
                 <Loader className="animate-spin" />
@@ -137,7 +139,7 @@ export function DataTable<TData, TValue>({
             </Button>
             <div className="relative w-full max-w-md">
               <Input
-                placeholder="Filter title..."
+                placeholder="Search by title..."
                 value={
                   (table.getColumn("title")?.getFilterValue() as string) ?? ""
                 }
@@ -233,7 +235,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-96 text-center"
                 >
-                  No results found.
+                  No results.
                 </TableCell>
               </TableRow>
             )}
@@ -252,7 +254,7 @@ export function DataTable<TData, TValue>({
           }}
           disabled={!table.getCanPreviousPage()}
         >
-          Prev
+          Prew
         </Button>
         <Button
           variant="outline"

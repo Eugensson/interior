@@ -20,7 +20,12 @@ export const Header = async () => {
         <div className="hidden md:flex items-center md:gap-4 lg:gap-8">
           <Nav items={HEADER_NAV_LINKS} />
           {session && session.user.isAdmin ? (
-            <LogoutBtn />
+            <div className="flex gap-4">
+              <Button asChild>
+                <Link href="/admin/overview">Dashboard</Link>
+              </Button>
+              <LogoutBtn />
+            </div>
           ) : (
             <Button className="w-fit p-4 text-base" asChild>
               <Link href="/login">Login</Link>
