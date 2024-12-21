@@ -16,7 +16,7 @@ const Contact = () => {
         subtitle="Home / Contact"
         className="bg-contact"
       />
-      <div className="container py-5 md:py-10 lg:py-20">
+      <div className="container xl:bg-grid xl:bg-center py-5 md:py-10 lg:py-20">
         <h2 className="h2 text-center mb-20">
           We love meeting new people
           <br /> and helping them
@@ -69,7 +69,7 @@ const Contact = () => {
           <ContactForm btnStyles="ml-auto" />
         </div>
       </div>
-      <div className="container mb-20 rounded-3xl overflow-hidden h-[500px] relative">
+      <div className="container xl:bg-grid xl:bg-center mb-20 rounded-3xl overflow-hidden h-[500px] relative">
         <Image
           src="/images/map.jpg"
           alt="map"

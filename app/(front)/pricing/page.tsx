@@ -22,7 +22,7 @@ const Pricing = () => {
         subtitle="Home / Pricing"
         className="bg-pricing"
       />
-      <ul className="container py-5 md:py-10 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-5 lg:gap-10">
+      <ul className="container xl:bg-grid xl:bg-center py-5 md:py-10 lg:py-20 grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-5 lg:gap-10">
         <li>
           <Card className="rounded-3xl bg-accent-secondary py-5">
             <CardHeader className="px-5">

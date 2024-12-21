@@ -12,7 +12,7 @@ const Faq = () => {
   return (
     <>
       <SectionHeader title="F.A.Q." subtitle="Home / Faq" className="bg-faq" />
-      <div className="container py-20 text-center space-y-20">
+      <div className="container xl:bg-grid xl:bg-center py-20 text-center space-y-20">
         <h2 className="h2 mb-12">Every Question Answered</h2>
         <div className="flex gap-20">
           <Accordion type="single" collapsible className="flex-1">

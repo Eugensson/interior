@@ -8,6 +8,7 @@ const Employee = () => {
         subtitle="Team / James Smith"
         className="bg-employee"
       />
+      <div className="container xl:bg-grid xl:bg-center">employee details</div>
     </>
   );
 };

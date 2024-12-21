@@ -17,7 +17,7 @@
   }
 
   .h1 {
-    @apply text-6xl lg:text-7xl leading-none;
+    @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-none;
   }
 
   .h2 {
@@ -43,4 +43,9 @@
   .btn-accent {
     @apply bg-accent hover:bg-accent-hover;
   }
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  @apply bg-accent rounded-none size-2;
 }

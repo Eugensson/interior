@@ -4,7 +4,7 @@ import { Invite } from "@/components/invite";
 import { ServiceCard } from "@/components/service-card";
 import { SectionHeader } from "@/components/section-header";
 
-import { SERVICES_LIST } from "@/lib/constants";
+import { SERVICE_LIST } from "@/lib/constants";
 
 const Services = () => {
   return (
@@ -14,8 +14,8 @@ const Services = () => {
         subtitle="Home / Services"
         className="bg-services"
       />
-      <ul className="container py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {SERVICES_LIST.map((item) => (
+      <ul className="container xl:bg-grid xl:bg-center py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {SERVICE_LIST.map((item) => (
           <li key={item.slug}>
             <ServiceCard item={item} />
           </li>
@@ -29,7 +29,7 @@ const Services = () => {
         </p>
         <ul className="flex flex-col gap-y-20">
           <li className="flex gap-x-12">
-            <div className="flex-1 order-1 relative aspect-square overflow-hidden rounded-tr-[100px] rounded-bl-[350px]">
+            <div className="flex-1 order-1 relative aspect-square overflow-hidden rounded-tr-[100px] rounded-bl-[200px]">
               <Image
                 src="/images/services/services_1.jpg"
                 alt="Services 1"
@@ -58,7 +58,7 @@ const Services = () => {
             </div>
           </li>
           <li className="flex gap-x-12">
-            <div className="flex-1 order-2 relative aspect-square overflow-hidden rounded-tr-[100px] rounded-bl-[350px]">
+            <div className="flex-1 order-2 relative aspect-square overflow-hidden rounded-tr-[100px] rounded-bl-[200px]">
               <Image
                 src="/images/services/services_2.jpg"
                 alt="Services 2"
@@ -87,7 +87,7 @@ const Services = () => {
             </div>
           </li>
           <li className="flex gap-x-12">
-            <div className="flex-1 order-1 relative aspect-square overflow-hidden rounded-tr-[100px] rounded-bl-[350px]">
+            <div className="flex-1 order-1 relative aspect-square overflow-hidden rounded-tr-[100px] rounded-bl-[200px]">
               <Image
                 src="/images/services/services_3.jpg"
                 alt="Services 3"
@@ -116,7 +116,7 @@ const Services = () => {
             </div>
           </li>
           <li className="flex gap-x-12">
-            <div className="flex-1 order-2 relative aspect-square overflow-hidden rounded-tr-[100px] rounded-bl-[350px]">
+            <div className="flex-1 order-2 relative aspect-square overflow-hidden rounded-tr-[100px] rounded-bl-[200px]">
               <Image
                 src="/images/services/services_4.jpg"
                 alt="Services 4"

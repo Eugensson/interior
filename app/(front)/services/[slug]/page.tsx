@@ -8,6 +8,7 @@ const ServiceDetails = () => {
         subtitle="Team / Service Single"
         className="bg-service"
       />
+      <div className="container xl:bg-grid xl:bg-center">service details</div>
     </>
   );
 };

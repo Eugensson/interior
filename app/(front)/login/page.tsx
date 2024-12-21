@@ -15,7 +15,7 @@ const Login = () => {
         subtitle="Home / Login"
         className="bg-login"
       />
-      <div className="container py-5 md:py-10 lg:py-20 flex justify-center items-center">
+      <div className="container xl:bg-grid xl:bg-center py-5 md:py-10 lg:py-20 flex justify-center items-center">
         <LoginForm />
       </div>
     </>

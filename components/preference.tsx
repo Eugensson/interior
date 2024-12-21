@@ -1,53 +1,32 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { SERVICE_LIST } from "@/lib/constants";
+
 export const Preference = () => {
   return (
-    <section className="container py-5 md:py-10 lg:py-20">
+    <section className="container xl:bg-grid xl:bg-center py-5 md:py-10 lg:py-20">
       <h2 className="sr-only">Preference</h2>
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-2">
-        <li className="space-y-2 p-2">
-          <h3 className="h3 text-center">Project Plan</h3>
-          <p className="text-center max-w-72 mx-auto">
-            There are many variations of the passages of lorem Ipsum from
-            available, majority.
-          </p>
-          <Link
-            href="/services"
-            className="flex justify-center items-center gap-x-2 hover:text-accent transition-colors duration-300"
-          >
-            Read More
-            <ArrowRight size={16} className="text-accent" />
-          </Link>
-        </li>
-        <li className="space-y-2 p-2">
-          <h3 className="h3 text-center">Interior Work</h3>
-          <p className="text-center max-w-72 mx-auto">
-            There are many variations of the passages of lorem Ipsum from
-            available, majority.
-          </p>
-          <Link
-            href="/services"
-            className="flex justify-center items-center gap-x-2 hover:text-accent transition-colors duration-300"
-          >
-            Read More
-            <ArrowRight size={16} className="text-accent" />
-          </Link>
-        </li>
-        <li className="space-y-2 p-2">
-          <h3 className="h3 text-center">Realization</h3>
-          <p className="text-center max-w-72 mx-auto">
-            There are many variations of the passages of lorem Ipsum from
-            available, majority.
-          </p>
-          <Link
-            href="/services"
-            className="flex justify-center items-center gap-x-2 hover:text-accent transition-colors duration-300"
-          >
-            Read More
-            <ArrowRight size={16} className="text-accent" />
-          </Link>
-        </li>
+        {SERVICE_LIST.slice(0, 3).map(
+          ({ title, slug, subtitle, icon: Icon }) => (
+            <li
+              key={slug}
+              className="px-14 py-5 flex flex-col items-center gap-4 text-center"
+            >
+              <Icon size={40} className="text-accent" />
+              <h3 className="h3 capitalize">{title}</h3>
+              <p>{subtitle}</p>
+              <Link
+                href="/services"
+                className="flex justify-center items-center gap-x-2 hover:text-accent transition-colors duration-300"
+              >
+                Read More
+                <ArrowRight size={16} className="text-accent" />
+              </Link>
+            </li>
+          )
+        )}
       </ul>
     </section>
   );

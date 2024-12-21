@@ -3,13 +3,19 @@ import {
   RiTwitterXFill,
   RiLinkedinFill,
   RiInstagramLine,
+  RiCompasses2Fill,
+  RiMagicLine,
+  RiToolsLine,
+  RiAncientPavilionLine,
 } from "react-icons/ri";
+import { BsBuildings } from "react-icons/bs";
+import { GiArtificialIntelligence, GiHalfTornado } from "react-icons/gi";
 
 export const HEADER_NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Projects", href: "/projects" },
+  { name: "Our Work", href: "/projects" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -17,7 +23,7 @@ export const FOOTER_NAV_LINKS = [
   { name: "About Us", href: "/about" },
   { name: "Our Team", href: "/team" },
   { name: "Our Services", href: "/services" },
-  { name: "Our Projects", href: "/projects" },
+  { name: "Our Work", href: "/projects" },
   { name: "Pricing", href: "/pricing" },
   { name: "Blog & News", href: "/blog" },
   { name: "FAQ", href: "/faq" },
@@ -28,7 +34,7 @@ export const MOBILE_NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Projects", href: "/projects" },
+  { name: "Our Work", href: "/projects" },
   { name: "Team", href: "/team" },
   { name: "Pricing", href: "/pricing" },
   { name: "Blog & News", href: "/blog" },
@@ -277,45 +283,6 @@ export const TEAM_LIST = [
   },
 ];
 
-export const SERVICES_LIST = [
-  {
-    title: "Project Plan",
-    slug: "project-plan",
-    descriptions:
-      "There are many variations of the passages of lorem Ipsum from savailable, majority.",
-  },
-  {
-    title: "Interior Work",
-    slug: "interior-work",
-    descriptions:
-      "There are many variations of the passages of lorem Ipsum from savailable, majority.",
-  },
-  {
-    title: "Retail Design",
-    slug: "retail-design",
-    descriptions:
-      "There are many variations of the passages of lorem Ipsum from savailable, majority.",
-  },
-  {
-    title: "2d/3d Art Work",
-    slug: "2d-3d-art-work",
-    descriptions:
-      "There are many variations of the passages of lorem Ipsum from savailable, majority.",
-  },
-  {
-    title: "Design of facade",
-    slug: "design-of-facade",
-    descriptions:
-      "There are many variations of the passages of lorem Ipsum from savailable, majority.",
-  },
-  {
-    title: "Decoration Work",
-    slug: "decoration-work",
-    descriptions:
-      "There are many variations of the passages of lorem Ipsum from savailable, majority.",
-  },
-];
-
 export const BRAND_LIST = [
   { label: "ModernHome", image: "/icons/brand_01.svg" },
   { label: "StyleVintageInterior", image: "/icons/brand_02.svg" },
@@ -324,34 +291,41 @@ export const BRAND_LIST = [
   { label: "ClassicDesignStudio", image: "/icons/brand_05.svg" },
 ];
 
-export const CLIENT_LIST = [
+export const TESTIMONIAL_LIST = [
   {
     name: "Nattasha Mith",
     location: "New York, USA",
     image: "/images/testimonial/Nattasha_Mith.jpg",
-    testimonial:
-      "Lorem Ipsum is simply dummy text of the typesetting industry. Ipsum has been scrambled.",
+    message:
+      "The team exceeded all our expectations! They created a stylish, functional, and cozy interior that perfectly suits our lifestyle. Thank you so much for your professionalism and attention to detail!",
   },
   {
     name: "Raymond Galario",
     location: "Veracruz, Mexico",
     image: "/images/testimonial/Raymond_Galario.jpg",
-    testimonial:
-      "Lorem Ipsum is simply dummy text of the typesetting industry. Ipsum has been scrambled it to make a type book.",
+    message:
+      "The designers' work is impressive! Their attentiveness to our wishes and innovative solutions turned our home into a true masterpiece. Highly recommend to anyone dreaming of their ideal space!",
   },
   {
     name: "Benny Roll",
     location: "Sydney, Australia",
     image: "/images/testimonial/Benny_Roll.jpg",
-    testimonial:
-      "Lorem Ipsum is simply dummy text of the typesetting industry. Ipsum has been scrambled.",
+    message:
+      "Working with this company was a pleasure and so easy. They considered all our preferences, creating a space we truly love. Thank you for the outstanding service!",
   },
   {
     name: "Leandro Kaplan",
     location: "Basel, Switzerland",
     image: "/images/testimonial/Leandro_Kaplan.jpg",
-    testimonial:
-      "Lorem Ipsum is simply dummy text of the typesetting industry. Ipsum has been.",
+    message:
+      "The designers chose the perfect color palette and furniture, paying attention to every little detail. We’re thrilled with the result — our home is now stylish, modern, and incredibly comfortable!",
+  },
+  {
+    name: "Noelle Otto",
+    location: "Oslo, Norway",
+    image: "/images/testimonial/Noelle_Otto.jpg",
+    message:
+      "Our new apartment looks fantastic, all thanks to this professional team! The design was done with every detail in mind, making our lives so much more enjoyable. Thank you for the amazing work!",
   },
 ];
 
@@ -360,4 +334,70 @@ export const STAT_LIST = [
   { countNum: 85, text: "Success Project" },
   { countNum: 15, text: "Active Project" },
   { countNum: 95, text: "Happy Customers" },
+];
+
+export const SERVICE_LIST = [
+  {
+    title: "project plan",
+    slug: "project-plan",
+    subtitle:
+      "Development of a detailed plan covering the concept, timeline, and key project implementation stages.",
+    descriptions: "",
+    images: [],
+    icon: RiCompasses2Fill,
+  },
+  {
+    title: "interior work",
+    slug: "interior-work",
+    subtitle:
+      "Execution of finishing works, including interior design, material selection, and space optimization.",
+    descriptions: "",
+    images: [],
+    icon: RiMagicLine,
+  },
+  {
+    title: "realization",
+    slug: "realization",
+    subtitle:
+      "Complete project execution adhering to deadlines, quality standards, and agreed budget constraints.",
+    descriptions: "",
+    images: [],
+    icon: RiToolsLine,
+  },
+  {
+    title: "retail design",
+    slug: "retail-design",
+    subtitle:
+      "Designing functional and visually appealing retail spaces tailored to brand identity and customer experience.",
+    descriptions: "",
+    images: [],
+    icon: RiAncientPavilionLine,
+  },
+  {
+    title: "2d/3d Art Work",
+    slug: "2d-3d-art-work",
+    subtitle:
+      "Creation of high-quality 2D and 3D artwork for visualization, concept development, and presentation.",
+    descriptions: "",
+    images: [],
+    icon: GiArtificialIntelligence,
+  },
+  {
+    title: "facade design",
+    slug: "facade-design",
+    subtitle:
+      "Development of innovative and aesthetic facade designs that align with architectural principles.",
+    descriptions: "",
+    images: [],
+    icon: BsBuildings,
+  },
+  {
+    title: "decoration work",
+    slug: "decoration-work",
+    subtitle:
+      "Implementation of decorative elements to enhance aesthetic appeal and create a cohesive design environment.",
+    descriptions: "",
+    images: [],
+    icon: GiHalfTornado,
+  },
 ];

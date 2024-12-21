@@ -48,7 +48,7 @@ const ArticlesDetails = async ({
         subtitle="Home / Article Details"
         className="bg-article"
       />
-      <div className="container py-20 flex gap-12">
+      <div className="container xl:bg-grid xl:bg-center py-20 flex gap-12">
         <div className="flex-1 flex flex-col">
           <h2 className="h2 max-w-[500px] mb-5">{article.title}</h2>
           <div className="relative w-full h-[450px] rounded-3xl overflow-hidden mb-12">

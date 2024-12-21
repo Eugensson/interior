@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { RiMenu3Fill } from "react-icons/ri";
+import { RiMenu4Line } from "react-icons/ri";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
@@ -31,7 +31,7 @@ export const MobileMenu = ({ items }: MobileMenuProps) => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger className="md:hidden">
-        <RiMenu3Fill className="h-6 w-6" />
+        <RiMenu4Line className="size-8" />
       </SheetTrigger>
       <SheetContent side="top" className="py-8 px-4 md:hidden">
         <SheetHeader>

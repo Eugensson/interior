@@ -39,7 +39,7 @@ const ProjectDetails = async ({
         subtitle="Home / Project details"
         className="bg-project"
       />
-      <div className="container py-20 space-y-10">
+      <div className="container xl:bg-grid xl:bg-center py-20 space-y-10">
         <div className="flex gap-10">
           <ul className="w-[500px] h-fit bg-accent-secondary flex flex-col gap-y-5 py-14 px-10 rounded-3xl">
             <li className="flex justify-between items-end text-lg">

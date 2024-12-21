@@ -51,7 +51,7 @@ const Blog = async ({
         subtitle="Home / Blog"
         className="bg-blog"
       />
-      <div className="container py-5 md:py-10 lg:py-20 space-y-10">
+      <div className="container xl:bg-grid xl:bg-center py-5 md:py-10 lg:py-20 space-y-10">
         {articles.length > 0 && (
           <div className="flex flex-col gap-10">
             <h2 className="h2 capitalize">Latest post</h2>

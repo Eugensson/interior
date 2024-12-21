@@ -7,7 +7,7 @@ export const Articles = async () => {
   const latestArticles = await getLatestArticles();
 
   return (
-    <section className="container py-5 md:py-10 lg:py-20 flex flex-col items-center gap-y-10">
+    <section className="container xl:bg-grid xl:bg-center pt-5 md:pt-10 lg:pt-20 flex flex-col items-center gap-y-10">
       <h2 className="h2">Articles & News</h2>
       <p className="max-w-[550px] text-center">
         It is a long established fact that a reader will be distracted by the of

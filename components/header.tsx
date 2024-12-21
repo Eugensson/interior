@@ -14,7 +14,7 @@ export const Header = async () => {
   const session = await auth();
 
   return (
-    <header className="py-8 sticky top-0 z-50 bg-white">
+    <header className="py-8 sticky top-0 z-50 bg-white shadow-xl">
       <div className="container flex items-center justify-between">
         <Logo />
         <div className="hidden md:flex items-center md:gap-4 lg:gap-8">

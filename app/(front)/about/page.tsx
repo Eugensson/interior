@@ -33,7 +33,7 @@ const AboutUs = () => {
           <div className="w-[500px] h-3 bg-white absolute -bottom-3 left-1/2 -translate-x-1/2" />
         </div>
       </div>
-      <div className="container py-20 flex flex-col gap-y-10">
+      <div className="container xl:bg-grid xl:bg-center py-20 flex flex-col gap-y-10">
         <div className="flex flex-col gap-y-5">
           <h3 className="h2">What We Do</h3>
           <p className="text-secondary max-w-[500px]">

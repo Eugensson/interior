@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const Invite = () => {
   return (
-    <section className="container pb-5 md:pb-10 lg:pb-20">
+    <section className="container xl:bg-grid xl:bg-center py-5 md:py-10 lg:py-20">
       <div className="bg-primary py-20 text-white rounded-3xl text-center">
         <h3 className="h2 text-white mb-4">Wanna join the interno?</h3>
         <p className="mb-8">
