@@ -6,6 +6,7 @@ import { dbConnect } from "@/lib/db-connect";
 import { UserModel } from "@/lib/models/user-model";
 import { ProjectModel } from "@/lib/models/project-model";
 import { ArticleModel } from "@/lib/models/article-model";
+import { ServiceModel } from "@/lib/models/service-model";
 
 export const GET = async () => {
   if (process.env.NODE_ENV !== "development") {
@@ -18,7 +19,7 @@ export const GET = async () => {
   try {
     await dbConnect();
 
-    const { users, projects, articles } = sampleData;
+    const { users, projects, articles, services } = sampleData;
 
     await UserModel.deleteMany();
     await UserModel.insertMany(users);
@@ -29,11 +30,15 @@ export const GET = async () => {
     await ArticleModel.deleteMany();
     await ArticleModel.insertMany(articles);
 
+    await ServiceModel.deleteMany();
+    await ServiceModel.insertMany(services);
+
     return NextResponse.json({
       message: "Database seeded successfully",
       usersCount: users.length,
       projectsCount: projects.length,
       articlesCount: articles.length,
+      servicesCount: services.length,
     });
   } catch (error) {
     console.error("Error during database seeding:", error);

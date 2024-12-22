@@ -1,20 +1,26 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { SERVICE_LIST } from "@/lib/constants";
+import { getAllServices } from "@/lib/services/service";
 
-export const Preference = () => {
+import { ICON_MAP } from "@/lib/constants";
+
+export const Preference = async () => {
+  const services = await getAllServices();
+
   return (
     <section className="container xl:bg-grid xl:bg-center py-5 md:py-10 lg:py-20">
       <h2 className="sr-only">Preference</h2>
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-2">
-        {SERVICE_LIST.slice(0, 3).map(
-          ({ title, slug, subtitle, icon: Icon }) => (
+        {services.slice(0, 3).map(({ title, slug, subtitle, icon }) => {
+          const IconComponent = ICON_MAP[icon] || (() => null);
+
+          return (
             <li
               key={slug}
               className="px-14 py-5 flex flex-col items-center gap-4 text-center"
             >
-              <Icon size={40} className="text-accent" />
+              <IconComponent size={40} className="text-accent" />
               <h3 className="h3 capitalize">{title}</h3>
               <p>{subtitle}</p>
               <Link
@@ -25,8 +31,8 @@ export const Preference = () => {
                 <ArrowRight size={16} className="text-accent" />
               </Link>
             </li>
-          )
-        )}
+          );
+        })}
       </ul>
     </section>
   );

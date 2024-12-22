@@ -4,9 +4,12 @@ import { Invite } from "@/components/invite";
 import { ServiceCard } from "@/components/service-card";
 import { SectionHeader } from "@/components/section-header";
 
-import { SERVICE_LIST } from "@/lib/constants";
+import { Service } from "@/lib/models/service-model";
+import { getAllServices } from "@/lib/services/service";
 
-const Services = () => {
+const Services = async () => {
+  const services = await getAllServices();
+
   return (
     <>
       <SectionHeader
@@ -15,9 +18,9 @@ const Services = () => {
         className="bg-services"
       />
       <ul className="container xl:bg-grid xl:bg-center py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {SERVICE_LIST.map((item) => (
-          <li key={item.slug}>
-            <ServiceCard item={item} />
+        {services.map((service: Service) => (
+          <li key={service.slug}>
+            <ServiceCard item={service} />
           </li>
         ))}
       </ul>

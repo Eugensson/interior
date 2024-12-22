@@ -46,7 +46,7 @@ export const ADMIN_NAV_LINKS = [
   { name: "Overview", href: "/admin/overview" },
   { name: "Projects", href: "/admin/projects" },
   { name: "Articles", href: "/admin/articles" },
-  { name: "Settings", href: "/admin/settings" },
+  { name: "Services", href: "/admin/services" },
 ];
 
 export const SOCIAL_LINKS = [
@@ -336,68 +336,12 @@ export const STAT_LIST = [
   { countNum: 95, text: "Happy Customers" },
 ];
 
-export const SERVICE_LIST = [
-  {
-    title: "project plan",
-    slug: "project-plan",
-    subtitle:
-      "Development of a detailed plan covering the concept, timeline, and key project implementation stages.",
-    descriptions: "",
-    images: [],
-    icon: RiCompasses2Fill,
-  },
-  {
-    title: "interior work",
-    slug: "interior-work",
-    subtitle:
-      "Execution of finishing works, including interior design, material selection, and space optimization.",
-    descriptions: "",
-    images: [],
-    icon: RiMagicLine,
-  },
-  {
-    title: "realization",
-    slug: "realization",
-    subtitle:
-      "Complete project execution adhering to deadlines, quality standards, and agreed budget constraints.",
-    descriptions: "",
-    images: [],
-    icon: RiToolsLine,
-  },
-  {
-    title: "retail design",
-    slug: "retail-design",
-    subtitle:
-      "Designing functional and visually appealing retail spaces tailored to brand identity and customer experience.",
-    descriptions: "",
-    images: [],
-    icon: RiAncientPavilionLine,
-  },
-  {
-    title: "2d/3d Art Work",
-    slug: "2d-3d-art-work",
-    subtitle:
-      "Creation of high-quality 2D and 3D artwork for visualization, concept development, and presentation.",
-    descriptions: "",
-    images: [],
-    icon: GiArtificialIntelligence,
-  },
-  {
-    title: "facade design",
-    slug: "facade-design",
-    subtitle:
-      "Development of innovative and aesthetic facade designs that align with architectural principles.",
-    descriptions: "",
-    images: [],
-    icon: BsBuildings,
-  },
-  {
-    title: "decoration work",
-    slug: "decoration-work",
-    subtitle:
-      "Implementation of decorative elements to enhance aesthetic appeal and create a cohesive design environment.",
-    descriptions: "",
-    images: [],
-    icon: GiHalfTornado,
-  },
-];
+export const ICON_MAP: Record<string, React.ElementType> = {
+  RiCompasses2Fill,
+  RiAncientPavilionLine,
+  RiMagicLine,
+  RiToolsLine,
+  BsBuildings,
+  GiArtificialIntelligence,
+  GiHalfTornado,
+};

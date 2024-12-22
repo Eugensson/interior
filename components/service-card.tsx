@@ -9,25 +9,27 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { ICON_MAP } from "@/lib/constants";
+
 export type Service = {
   title: string;
   slug: string;
   subtitle: string;
-  images: string[];
-  descriptions: string;
-  icon: React.ElementType;
+  icon: string;
 };
 
 export const ServiceCard = ({
-  item: { title, slug, subtitle, icon: Icon },
+  item: { title, slug, subtitle, icon },
 }: {
   item: Service;
 }) => {
+  const IconComponent = ICON_MAP[icon] || (() => null);
+
   return (
     <Link href={`/services/${slug}`} className="group outline-none">
       <Card className="border-none overflow-hidden rounded-3xl py-10 group-hover:bg-accent-secondary group-focus:bg-accent-secondary">
         <CardHeader>
-          <Icon className="text-accent mx-auto mb-5" size={40} />
+          <IconComponent className="text-accent mx-auto mb-5" size={40} />
           <CardTitle className="font-primary font-normal text-center capitalize">
             {title}
           </CardTitle>

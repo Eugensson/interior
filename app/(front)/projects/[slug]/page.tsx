@@ -36,7 +36,7 @@ const ProjectDetails = async ({
     <>
       <SectionHeader
         title={`${project.title}`}
-        subtitle="Home / Project details"
+        subtitle="Projects / Project details"
         className="bg-project"
       />
       <div className="container xl:bg-grid xl:bg-center py-20 space-y-10">
