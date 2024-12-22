@@ -18,7 +18,7 @@ export const Preference = async () => {
           return (
             <li
               key={slug}
-              className="px-14 py-5 flex flex-col items-center gap-4 text-center"
+              className="px-10 py-5 flex flex-col items-center gap-4 text-center"
             >
               <IconComponent size={40} className="text-accent" />
               <h3 className="h3 capitalize">{title}</h3>
